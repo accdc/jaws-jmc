@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>#savepath</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="#savepath">
+	<PARAM NAME="Keyword" VALUE="path of MUD's directions">
+</OBJECT>
+
+<P><A NAME="_savepath"></A><b>#savepath</b></P>
+
+<P><b>Syntax:</b> #savepath &lt;alias name&gt; ["reverse"]</P>
+
+<P>This command saves the current path to an alias.  It's usefule if you want to keep the path aliased for future usage. If you want to save the path from the current location to the start location, use "reverse" as the second parameter.</P>
+
+<P><b>Example:</b></P>
+
+<P><A HREF="path.html"><I>#path</I></A></P>
+
+<P>You would see something like this: "#Path n n n e e s e e s e e n e"</P>
+
+<P><I>#savepath town-castle</I></P>
+
+<P>The savepath command has now saved the current path to an alias, named "town-castle". Now  the alias named "town-castle" contains "n;n;n;e;e;s;e;e;s;e;e;n;e"</P>
+
+<P><I>#savepath town-castle reverse</I></P>
+
+<P>With the reverse option, the path is now similar to the one to return you to the starting point.  In this example, it has been saved to an alias called "town-castle".  Now the "town-castle" alias contains "w;s;w;w;n;w;w;n;w;w;s;s;s".</P>
+
+<P>See also: <A HREF="mark.html">#mark</A>, <A HREF="pathdir.html">#pathdir</A>, <A HREF="unpath.html">#unpath</A>, <A HREF="path.html">#path</A>, <A HREF="return.html">#return</A>, <A HREF="map.html">#map</A></P>
+
+</BODY>
+</HTML>

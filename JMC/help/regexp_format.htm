@@ -1,0 +1,181 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Regular expression syntax</TITLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<TABLE CELLSPACING=0 BORDER=0 WIDTH=624>
+<TR><TD WIDTH="58%" VALIGN="MIDDLE">
+<P><B><FONT FACE="Verdana, Arial" SIZE=5 COLOR="#800080">Regular Expression Syntax</B></FONT></TD>
+<TD VALIGN="MIDDLE">
+<P>&nbsp;</TD>
+</TR>
+</TABLE>
+
+<P><HR SIZE=0></P>
+<FONT FACE="Verdana, Arial"><H5>Description</H5>
+</FONT><FONT FACE="Verdana, Arial" SIZE=2><BLOCKQUOTE>Special characters and sequences are used in writing patterns for regular expressions. The following table describes these characters and includes short examples showing how the characters are used. </BLOCKQUOTE></FONT>
+<TABLE BORDER CELLSPACING=1 CELLPADDING=5 WIDTH=541>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<P><B><FONT FACE="Verdana, Arial" SIZE=2>Character</B></FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>Description</B></FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>\</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Marks the next character as special. /n/ matches the character "n". The sequence /\n/ matches a linefeed or newline character. </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>^</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches the beginning of input or line.</FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>$</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches the end of input or line.</FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>*</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches the preceding character zero or more times. /zo*/ matches either "z" or "zoo."</FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>+</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches the preceding character one or more times. /zo+/ matches "zoo" but not "z." </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>?</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches the preceding character zero or one time. /a?ve?/ matches the "ve" in "never." </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>.</B></FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches any single character except a newline character. </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>(</B><I>pattern</I><B>)</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches <I>pattern</I> and remembers the match. The matched substring can be retrieved from the %0-%9 variables. To match parentheses characters ( ), use "\(" or "\)".</FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<I><FONT FACE="Verdana, Arial" SIZE=2><P>x</I><B>|</B><I>y</I></FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches either <I>x</I> or <I>y</I>. /z|food?/ matches "zoo" or "food." </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>{</B><I>n</I><B>}</B></FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<I><FONT FACE="Verdana, Arial" SIZE=2><P>n</I> is a nonnegative integer. Matches exactly <I>n</I> times. /o{2}/ does not match the "o" in "Bob," but matches the first two o's in "foooood."</FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>{</B><I>n</I><B>,}</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<I><FONT FACE="Verdana, Arial" SIZE=2><P>n</I> is a nonnegative integer. Matches at least <I>n</I> times. /o{2,}/ does not match the "o" in "Bob" and matches all the o's in "foooood." /o{1,}/ is equivalent to /o+/.</FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>{</B><I>n</I><B>,</B><I>m</I><B>}</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<I><FONT FACE="Verdana, Arial" SIZE=2><P>m</I> and <I>n</I> are nonnegative integers. Matches at least <I>n</I> and at most <I>m</I> times. /o{1,3}/ matches the first three o's in "fooooood."</FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>[</B><I>xyz</I><B>]</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>A character set. Matches any one of the enclosed characters. /[abc]/ matches the "a" in "plain." </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>[^</B><I>xyz</I><B>]</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>A negative character set. Matches any character not enclosed. /[^abc]/ matches the "p" in "plain." </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>\b</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches a word boundary, such as a space. /ea*r\b/ matches the "er" in "never early." </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>\B</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches a nonword boundary. /ea*r\B/ matches the "ear" in "never early." </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>\d</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches a digit character. Equivalent to [0-9]. </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>\D</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches a nondigit character. Equivalent to [^0-9]. </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>\f</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches a form-feed character. </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>\n</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches a linefeed character. </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>\r</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches a carriage return character. </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>\s</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches any white space including space, tab, form-feed, and so on. Equivalent to [ \f\n\r\t\v]</FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>\S</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches any nonwhite space character. Equivalent to [^ \f\n\r\t\v] </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>\t</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches a tab character. </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>\v</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches a vertical tab character. </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>\w</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches any word character including underscore. Equivalent to [A-Za-z0-9_]. </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>\W</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches any nonword character. Equivalent to [^A-Za-z0-9_]. </FONT></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="MIDDLE">
+<B><FONT FACE="Verdana, Arial" SIZE=2><P>/</B><I>n</I><B>/</B> </FONT></TD>
+<TD WIDTH="83%" VALIGN="MIDDLE">
+<FONT FACE="Verdana, Arial" SIZE=2><P>Matches <I>n</I>, where <I>n</I> is an octal, hexadecimal, or decimal escape value. Allows embedding of ASCII codes into regular expressions. </FONT></TD>
+</TR>
+</TABLE>
+
+<P><HR SIZE=0></P>
+<P>Samples: </P>
+<B><P>/^You (massacres|hits|bruises|slashes|blugeons) (.+) (very hard|hard|extremly hard)*( with your slash)*/ </P>
+</B><P>Its matches lines like: «You massacres dragon with your slash» «You blugeons dragon very hard» «You blugeons dragon hard» etc.</P>
+<P>%0 variables will be filled by the part of string matched by <B>(.+), </B>%1 variable will be filled by potion of string matched by <B>(very hard|hard|extremly hard)</B> etc.</P>
+<B><P>/^\s+(\w+)\s+([\w\.]+)\s+\w+\s+\w+\s+[NY]\s+[NY]\s+[NY]\s+\d+\s+\d+.*/</P>
+</B><P>This expressions is used to match group members status:</P>
+<P>Your group of 2 members consists of:</P>
+<P>  Member           Hits      Move      Position  Fly Inv Water Light Mem</P>
+<P>------------------------------------------------------------------------</P>
+<P>  Shesh            fair      rested    standing   N   N    N     0    0</P>
+<P>Jaba             perfect   rested    standing   Y   Y    N     1    0</P>
+</BODY>
+</HTML>

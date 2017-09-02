@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Groups in JMC</TITLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<P ALIGN="CENTER"><big><STRONG>JMC commands groups.</big>&lt;</P>
+<P>&nbsp;&nbsp;&nbsp; </P>
+<P ALIGN="CENTER">What is groups ?</P>
+<P>Some JMC’s objects (aliases, actions, highlights) are assigned to groups. Group is defined by its name and provides way to unite few JMC alias/action/highlight and manipulate them by one short command. </P>
+<P ALIGN="CENTER">What JMC group for ?</P>
+<P>Lets look at common MUD players task. Someone named “Shesh” trying to kill you. What you need to support anti-pkill operations? First, you have to highlight word Shesh, to select its presence. Second, you have to create auto-attack triggers like “#action {Shesh arrives from the %0} {kill Shesh};#action {Shesh flying from the %0} {kill shesh}”. Probably, you have to create some other aliases/actions too. Well. Usual, peoples have aliases like this:</P>
+<P>#alias pkill_taget {#var TAGET %0;#action {$TAGET arrives from the %0} {kill $TAGET}};…..}</P>
+<P>OK. Shesh scared and asks for peace. You have to remove pkill triggers/highlights. Mostly, you write alias like this: “#alias stop_pkill {#unaction …;#unhigh}”</P>
+<P>Well. Its working ok. But there is some problems with it. First problem is – those aliases are too long ( i seen 1.5kylobyte aliases) and difficult to understand. Second problem is – if you are doing a lot of #action/#unaction/#alias/#unalias … operation while combat or in other situation like it (a lot of operatioins per second) its slow JMC down a few. </P>
+<P>What is solution ? Don’t write this HUGE alias “pkill_taget”. Just create actions/aliases/highlight once, join them into “group” and disable/enable it then needed. Or just delete whole group.</P>
+<P>So, obviously, you should have way to enable/disable/delete set of JMC objects like alias/actions etc. Here is way to NOT create/remove a lot of actions but just enable/disable them by the one short command.</P>
+<P>There is one else role for groups. As for me, I using few profiles for different classes of my characters: mage, cleric, warrior . Each profile have some aliases/actions specific for class. Profile named “mage” contains aliases like this “#alias cm c ‘m m’;#alias cl cast ‘light bolt’” etc. Profile named “warrior” have no such aliases but contains other kind of aliases: #alias bm {rem sword;wear shield};#alia dm {rem shield;hold sword}. But both profiles contains a lot of identical aliases/actions like this: #alias bleg {#5 buy leg;put all.leg chest}. Obvious idea is to join those JMC objects into group and put it in the some place COMMON FOR ALL PROFILES. So, group must have global or local flag.</P>
+<P>&nbsp;</P>
+<P ALIGN="CENTER">How its working now ?</P>
+</STRONG><P>Well. 4 JMC command now have new format:</P>
+
+<UL>
+<I><LI>#alias {alias_name} {string} [group_name] </I>Sample: #alias k {kill} ; #alias {kt} {kill $taget} {pkill_grp} </LI>
+<I><LI>#sction {pattern} {command(s)} [priority] [group_name] </I>Sample: #action {massacre} {#showme OOH !!!} ; #action {annihilate} {flee} {fear_mode}; #action {obliterate} {flee} {2};#action {You dead} {#showme DAMN IT} {common} {8} </LI>
+<I><LI>#highlight {color} {pattern} [group_name] </I>Sample: #high {red} {Shesh}; #high {blue} {massacre} {fear_mode} </LI>
+<I><LI>#var {variable_name} {value} [local/global] </I>Sample: #var food {bread} global ;#var myname Jaba</LI></UL>
+
+<I><P>&nbsp;</P>
+</I><P>Last parameter for all 4 commands is not obligatory. So, all you old commands will work OK. Each alias, action and highlight created without group name will be placed in group named “default”. If you use last parameter alias/action/highlight will be assigned to group named in it. If such group is not exist it will be created as enabled and local.</P>
+<P>About local/global flag for variable and group. By default variable is local. Its means variable (and group) will be placed in your &lt;profile_name&gt;.set file (like as old JMC works). If its global it will be placed in the file named <B>global.set</B>.<B> </B>Every time you loads profile JMC loads contents of &lt;profile_name&gt;.set file and global.set file too.</P>
+<P>Group manipulations processed by the <B>#group </B>command. You may look for group list currently defined, disable/enable group, remove group (with all objects assigned to it) and set group as local/global. For more info look for <A HREF="group.html">#group</A> command description.</P>
+<P>&nbsp;<B>Remember ! </B>Creating/Removing 10 actions is 30 times slow then enable/disable group !</P>
+<P>&nbsp;</P></BODY>
+</HTML>

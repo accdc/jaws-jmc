@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>#presub</TITLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<P><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"><OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"><PARAM NAME="Keyword" VALUE="#presub"></OBJECT></P>
+<B><P><A NAME="_presub"></A>#presub</P>
+<P>Syntax:</B> #presub [on/off]</P>
+<P>#presub toggles whether or not substituted output can be triggered by the actions. </P>
+<P>Second parametr of this command is not necessary. Valid values is "ON" or "OFF". If you dont use it JMC will change current presub state to the inverted state.</P>
+<B><P>&nbsp;</P>
+<P>Example:</P>
+</B><P><A HREF="substitute.html"><I>#sub</I></A><I> {%0 crashes into you %1} {%0 BASH YOU!!!}</P>
+</I><P>Now you will see: "Warrior BASH YOU!!!" every time "Warrior" bashes you.</P>
+<P><A HREF="action.html">#action</A> {%0BASH YOU!!!} {stand}</P>
+<P>If the presub is off, this action will never been triggered. If the presub is on you will stand every time something bashes you.</P>
+<P>See also: <A HREF="substitute.html">#substitute</A></P></BODY>
+</HTML>

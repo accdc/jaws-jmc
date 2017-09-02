@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>#multiaction</TITLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<P><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"><OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"><PARAM NAME="Keyword" VALUE="#multiaction"><PARAM NAME="Keyword" VALUE="Multiple triggers aplly"></OBJECT></P>
+<B><P><A NAME="_multiaction"></A>#multiaction</P>
+<P>Syntax:</B> #multiaction [on/off]</P>
+<P>Toggles "multiaction mode" ON/OFF. When "multiaction mode" is OFF, JMC stops processing the incoming string after the first matched action is found. Sometimes, however, you have to apply multiple actions to the one string (for instance, to get values of the current movement points, mana, hitpoints from the statusline). When the "multiaction mode" is ON, JMC checks all actions on every incoming string. If you have hundreds of actions, it's probably better to keep this mode OFF, turn it on when you need to parse the string, and then turn it off again.</P>
+<P>Second parameter of this command is not necessary. Valid values is "ON" or "OFF". If you dont use it JMC will change current multiaction state to the inverted state. </P>
+<B><P>Example:</P>
+</B><P><A HREF="alias.html"><I>#alias</I></A><I> get_stats </I><A HREF="action.html"><I>{#action</I></A><I> {HP:%1} </I><A HREF="variable.html"><I>{#var hp %1};</I></A><A HREF="action.html"><I> #act</I></A><I> {MVS:%1} {</I><A HREF="variable.html"><I>#var</I></A><I> mvs %1;#multiaction;</I><A HREF="unact.html"><I> #unact</I></A><I> {HP:%1}; </I><A HREF="unact.html"><I>{#unact </I></A><I>MVS:%1}}; #multiaction; #cr }</P>
+</I><P>This is a very complex alias. First it defines two actions. The first action gets the hitpoints from a statusline and puts it in the 'hp' variable. The second action gets the number of movement points from the statusline and puts it into 'mvs' variable. Then it turns the "multiaction mode" OFF and removes both actions. After the actions defined, the alias sends a carriage return to the MUD to get a statusline. When the statusline arrives, the actions fill the variables and the second action deletes both actions and turns the mode OFF. </P>
+<P>By default this mode is OFF.</P>
+<P>See also: <A HREF="action.html">#action</A></P></BODY>
+</HTML>

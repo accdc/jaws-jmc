@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>#group</TITLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<B><P><A NAME="_gag"></A>#group</P>
+<P>Syntax:</B> #group {command} [{group_name}]</P>
+<P>&nbsp;&nbsp;&nbsp; This command using for <A HREF="group_descr.html">groups manipulations</A>. Allowed commands is:</P>
+
+<UL>
+<B><LI>list </B> - shows groups list currently defined. Sample: <I>#group list</LI>
+</I><B><LI>enable </B>– enables group by name (enable all alias/actions/highlight assigned to this group). Sample: <I>#group enable pkill</LI>
+</I><B><LI>disable </B> - disables group by name (disable processing every action/highlight assigned to group, prevents using aliases assigned to group). Sample: <I>#group disable pkill</LI>
+</I><B><LI>delete </B>– removes group and all aliases/action/highlights assigned to group. Sample: <I>#group delete pkill</LI>
+</I><B><LI>info </B> - show all objects assigned to group. Sample: #group info pkill</LI>
+<B><LI>global</B> – makes group global. All aliases/actions/highlights assigned to this group will be placed into <B>global.set </B>file and will be availible for all profiles. Sample: <I>#group global pkill</LI>
+</I><B><LI>local </B>– makes group local. Its content will be placed into profile’s .set file and availible only for current profile. Sample: <I>#group local pkill</LI></UL>
+
+</I><P>&nbsp;</P>
+<P>See also: <A HREF="alias.html">#alias</A> <A HREF="action.html">#action</A> <A HREF="highlight.html">#highlight</A> <A HREF="variable.html">#variable</A></P></BODY>
+</HTML>

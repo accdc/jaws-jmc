@@ -1,0 +1,134 @@
+log = 0
+logAppend = 0
+autoLog = 0
+logPath = ""
+logStr = ""
+
+function onIncoming () {
+var s = oJax.StringTrim(jmc.Event)
+if (oJax.JsIsBlank(s) || s == "undefined") {
+return
+}
+// Filter out all ansi command strings that were received from the MUD server
+s = s.replace(/\x1b\[[^m]+m/g, "")
+if (jmc.IsConnected && log == 1) {
+logStr += "\n" + s
+}
+s = oJax.StringReplaceAll(s, '"', '\\"')
+fsAPI.RunFunction('parseIncomingString("' + s + '")')
+}
+
+function onInput () {
+if (!jmc.IsConnected) {
+fsAPI.RunFunction('SayString("Not Connected")')
+return
+}
+if (log == 1) {
+var s = oJax.StringReplaceAll(jmc.Event, '"', '\\"')
+logStr += "\n\n{--" + s + "--}\n"
+}
+}
+
+function isConnected () {
+fsAPI.RunFunction('SayString("Connected")')
+}
+
+function notConnected () {
+fsAPI.RunFunction('SayString("Not Connected")')
+}
+
+function setCChar () {
+fsAPI.RunFunction('setCChar("' + jmc.CommandChar + '")')
+}
+
+// Toggle logging for the current JMC instance
+function lg (p) {
+logPath = sF + "\\" + (p || "log.log")
+if (log == 1) {
+log = 0
+fsAPI.RunFunction('SayString("Logging Disabled")')
+} else {
+log = 1
+fsAPI.RunFunction('SayString("Logging Enabled")')
+}
+}
+
+// Toggle whether the log file will be overwritten or appended when the current JMC instance is closed
+function lgAppend () {
+if (logAppend == 1) {
+logAppend = 0
+fsAPI.RunFunction('SayString("Log file will be overwritten")')
+} else {
+logAppend = 1
+fsAPI.RunFunction('SayString("Log file will be appended")')
+}
+}
+
+// Toggle whether session logging will automatically occur every time JMC is run
+function autoLg () {
+if (autoLog == 1) {
+autoLog = 0
+fsAPI.RunFunction('SayString("Auto Logging Disabled")')
+} else {
+autoLog = 1
+fsAPI.RunFunction('SayString("Auto Logging Enabled")')
+}
+}
+
+// Save the logging settings and path variables
+function setLg () {
+var scrLg = "" + log + logAppend + autoLog + "|" + logPath
+oJax.StringToFile(scrLg, sF + "\\logConfig.txt")
+}
+
+// Retrieve the previously saved logging settings and path variables
+function getLg () {
+var scrLg = oJax.FileToString(sF + "\\logConfig.txt")
+log = oJax.StringLeft(scrLg, 1) || 0
+scrLg = oJax.StringChopLeft(scrLg, 1)
+logAppend = oJax.StringLeft(scrLg, 1) || 0
+scrLg = oJax.StringChopLeft(scrLg, 1)
+autoLog = oJax.StringLeft(scrLg, 1) || 0
+scrLg = oJax.StringChopLeft(scrLg, 2)
+logPath = scrLg
+if (oJax.JsIsBlank(logPath)) {
+logPath = sF + "\\log.log"
+}
+}
+
+// Execute commands when the JMC instance is closed
+function onUnload () {
+if (log == 1) {
+if (logAppend) {
+oJax.StringAppendToFile("\n\n" + logStr, logPath)
+} else {
+oJax.StringToFile("\n\n" + logStr, logPath)
+}
+if (autoLog != 1) {
+log = 0
+}
+}
+setLg()
+}
+
+try {
+
+jmc.RegisterHandler("Incoming", "onIncoming()")
+jmc.RegisterHandler("Input", "onInput()")
+jmc.RegisterHandler("Connected", "isConnected()")
+jmc.RegisterHandler("ConnectLost", "notConnected()")
+jmc.RegisterHandler("Disconnected", "notConnected()")
+jmc.RegisterHandler("Unload", "onUnload()")
+
+setCChar()
+getLg()
+
+if (jmc.IsConnected) {
+isConnected()
+} else {
+notConnected()
+}
+
+} catch (e) {
+oJax.DialogShow("Object Library Not Registered", "The JMC Object Library is not currently registered in Windows, which is required for JMC and the JAWS Scripts for JMC to function properly. To register the JMC Object Library, right-click the file named 'JMC Object Library Register as Administrator.bat', then click Run As Administrator.")
+}

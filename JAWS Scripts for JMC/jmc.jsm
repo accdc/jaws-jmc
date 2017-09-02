@@ -1,54 +1,6 @@
-JAWS Scripts for the Java MUD Client.
-===
-
-Introduction
------
-
-In the early 2000's, I created a set of JAWS scripts that made the Java MUD Client accessible for use with the JAWS For Windows screen reader. Since then though, present-day API advancements have made it possible to update these scripts so that JMC can directly communicate with JAWS in order to provide significantly more powerful functionality and customization.
-
-A MUD is a Multi-User Dungeon gaming server that communicates through the telnet protocol. For a comprehensive description of MUDs and what these are, visit: https://en.wikipedia.org/wiki/MUD
-
-A comprehensive MUD search engine such as MUD Connect can be used to locate public MUD servers. http://www.mudconnect.com/
-
-JMC (the Java MUD Client) is a free open source client that provides access to all of these MUD servers. The JAWS Scripts within this archive make the JMC Client accessible for non-sighted screen reader users, and include many powerful features. The JMC MUD Client is also included within this archive , and has already been configured to interface with JAWS.
-
-How It Works
------
-
-For those who are not interested in the details and simply want to use the MUD client, skip to the JMC and JAWS Scripts Setup section below.
-
-The JMC MUD Client is a portable application that does not require installation, and can be run locally or from a thumb drive. Since JMC supports advanced scripting using jScript, vbScript, PERL, amongst others, it also has the ability to access COM components on the operating system.
-
-Within the JMC directory, a jScript file named "common.scr" has been added to the Settings folder, which instantiates several public API components before dynamically loading the JAWS integration scripts within the file named "common.scr.txt" within the root JMC application folder.
-
-The jScript common.scr.txt module registers all relevant events within the MUD client, so that incoming messages from the MUD server are processed and then passed to the JMC JAWS Scripts for string parsing and announcement. This is accomplished using the FS API COM component so that internal JMC processes can pass information directly to JAWS without having to rely upon visual text output recognition. This makes message string processing much faster and more reliable. Also, this file can be edited to program additional functionality into JMC if desired.
-
-In addition to using the FreedomSci.JAWSAPI COM object for JAWS integration, and WScript.Shell for path recognition, the HomerJax script component by @jamalmazrui (Jamal Mazrui) is also included for advanced processing within the registered JMC event functions. Reference: https://github.com/jamalmazrui/HomerJax
-
-Since MUD strings are passed to JAWS before they are processed by JMC for visual rendering, it is now necessary to use the JAWS Dictionary Manager to customize speech output for pronunciation and substitution strings if desired.
-
-JMC and JAWS Scripts Setup
------
-
-Setup is relatively simple. First download this archive and save it somewhere. Then perform the following steps.
-
-1. Copy all of the files within the folder "JAWS Scripts for JMC", then open your personal JAWS Settings folder and paste these files into that directory.
-
-To locate your JAWS Settings folder, press Windows+R to open the Run dialog, and paste the following including the quotes:
-"%appdata%\Freedom Scientific\JAWS"
-Then open the folder {JAWS-Version-Number}\Settings\enu, where {JAWS-Version-Number} is your currently running version of JAWS.
-It is within the folder "Settings\enu" where the JAWS Scripts for JMC should be pasted into.
-
-2. In order to run JMC where it can communicate with JAWS, the shared library will need to be registered within Windows. This is very simple to do, though it does require being 'Run as Administrator'.
-
-To do this, press Shift+F10 on the file named "JMC Object Library Register as Administrator.bat" within the JMC root folder, then activate "Run as Administrator". That should do the trick.
-
-3. Now to use JMC, just run jmc.exe from the root JMC folder. You should hear JAWS announce "Not Connected" every time you press Enter on the command line, that means it is working.
-
-Sometimes when creating new profiles within JMC, the new profile will not include the scripts that initialize integration with JAWS, so then you won't hear anything when typing into the command line. Simply press Insert+Control+R to reload the JMC scripts, and this will then be fixed for the currently running profile.
-
-Hotkey List (Also available by pressing Insert+H within JMC)
------
+messages
+@getHlp
+Hotkey List
 
 JMC Script Setup
 -----
@@ -339,7 +291,6 @@ Special JMC Script Commands
 
 To speak the currently running script version, press Alt+Shift+V.
 
-Distributed under the terms of the Open Source Initiative OSI - MIT License.
-
-Developed and maintained by: Bryan Garaventa https://www.linkedin.com/in/bgaraventa
-Or on Twitter at https://twitter.com/bryanegaraventa
+Press Escape to close this window
+@@
+EndMessages

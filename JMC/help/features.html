@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Overview of the futures</TITLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<P><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"></P>
+<object TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"><param name="Keyword" value="Overview of the futures"></object>
+<P><A NAME="overview_of_the_futures"></A></P>
+<H3>Overview of the features</H3>
+<B><P>Telnet protocol support.</P>
+</B><P>The JMC supports the telnet protocol. This is useful when you want to play a MUD by going "through" a UNIX host. You would need to connect to the UNIX server, log in there, then open a telnet connection to the MUD server. You can do all this with JMC. All you need to do is use your UNIX host address in the <A HREF="connect.html">#connect</A> command, with the telnet port (the standard telnet port is 23).</P>
+<B><P>Full ANSI color support.</P>
+</B><P>You can set up all 16 ANSI colors from the "Colors" dialogue. The 16 ANSI colors are defined as 8 "dark" colors and 8 "light" colors. JMC allows you to use only dark colors, by substituting them in for the light colors. For more information, see the <A HREF="ansicol.html">ANSI colors dialog box</A>.</P>
+<B><P>Command history features.</P>
+</B><P>Every time you enter a string into the editline, this string is added to the command history. This allows you to cycle through the commands in the history by using the Up/Down arrow keys. Not every string needs to be added to the command history. There is a minimum length option, which is definable in the <A HREF="comopts.html">Options</A> dialog box.</P>
+<B><P>Macro language.</P>
+</B><P>JMC’s macro language is compatible with the popular TinTin macros. If you aren’t familiar with this language, take the time to look through the command list. You can define aliases, actions (triggers), hotkeys and variables. You are also able to hold data in variables, evaluate a math expression, save paths you walked in the MUD and so on. The new feature is the ability to apply more than one trigger to a single string from the MUD. This is useful for parsing information from a statusline (hitpoints, mana, etc) or from multiple lines. See the <A HREF="multiact.html">#multiaction</A> command description for more detail.</P>
+<B><P>Regular expressions.</P>
+</B><P>JMC’s actions (triggers) pattern may be defined in two forms – 1. Old and simple TinTin format (its enough for most of actions) 2. Regular expression format for powerful triggers with huge and complex patterns. Look at <A HREF="action.html">#action</A> command help for more info.</P>
+<B><P>&nbsp;</P>
+<P>Hotkeys.</P>
+</B><P>JMC provides a hotkey system for the user. You can set up hotkeys for your commands, actions, aliases, etc. You can configure these hotkeys using either hotkey commands, or through the "Hotkeys" dialog. </P>
+<B><P>Profiles.</P>
+</B><P>JMC allows the user to create profiles. A profile is a set of options, macros and hotkeys loaded by the user. It's useful to split user environments between MUDs or between characters. For instance, if you have two characters, say a mage and warrior, you can create two profiles and switch between them, when you need it.</P>
+<B><P>Log files and RMA and HTML form.</P>
+</B><P>You can save all incoming strings and user input into a file. This can be done via the <A HREF="log.html">#log</A> command. You can append the log to the existing file or overwrite it. The JMC installation pack also contains the RMA utility. This tool allows you to play your log files in real-time. For more information on RMA, please see the <A HREF="rma.html">RMA Player</A> page. JMC can also log ANSI commands to the log file. Also, JMC are able to save your logs in the HTML form.</P>
+<B><P>Character substitution.</P>
+</B><P>Character substitution is an ability of JMC to substitute a character coming from the MUD with another character. It's useful when you don’t like a specific symbol coming from your favorite MUD, or when you play MUDs in different languages. For more information, please see the <A HREF="charsub.html">Character Substitution</A> page.</P>
+<B><P>Organize your macros.</P>
+</B><P>The JMC allows you to load macros from a file any time you need it. This means you could organize your macros into groups by the keeping them in separate files. You can load these files any time you need it by issuing the <A HREF="read.html">#read</A> command. You can also save the current JMC macros to the file by issuing the <A HREF="write.html">#write</A> command.</P>
+<B><P>Group of commands.</P>
+</B><P>JMC allows to join some objects (aliases, highlights, actions) into groups. Group may be disabled/enabled and defined as global/local. Look <A HREF="group_descr.html">here</A> for more info about groups.</P>
+<P>&nbsp;</P>
+<B><P>ActiveScripts support</P>
+</B><P>JMC now allows you to use ActiveScript languages as a part of your environment. So , you are able to use arrays, associated arrays, powerful code for pase incoming text and automate your actions in the MUD. Look at <A HREF="script_support.htm">JMC scripting support</A> page for more info. </P>
+<B><P>Command line word extender.</P>
+</B><P>JMC have word-extender in command line. You able to fill list of words, automatically completed in your commandline, by pressing TAB. Look at <A HREF="tabadd.htm">#tabadd</A> <A HREF="tabdel.htm">#tabdel</A> commands.</P></BODY>
+</HTML>

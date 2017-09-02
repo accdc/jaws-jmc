@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Scripting suport in JMC</TITLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<B><FONT FACE="Arial" SIZE=4><P ALIGN="CENTER">ActiveScript support in JMC 3.*</P>
+</B></FONT><FONT SIZE=2><P>&nbsp;</P>
+<P>Well. JMC 3.0 now support active scripting. What is it ? Its means you are able to use scripts, written in “real” languages. But you should not write you script on some specific language. ActiveScript technology allows you to choose language. Microsoft Scripting includes 2 languages: JScript and VBScript. There are few third-party ActiveScript languages: PERL, TCL and some more. You may find languages in the Internet and install on your computer.</P>
+<P>Why do you need to use powerful scripts ? If you are experienced user, you do know: TinTin scripts are not allows you to work with arrays, to manipulate strings, to check complex conditions. So, you need more powerful tool to make complex and useful autoactions, to collect some info while you playing mud etc .</P>
+<P>Why don’t use other MUD client with more powerful internal script ? I tested a lot of them – none have really complex language tools, none could be powerful and smart. What why I adds script support to JMC.</P>
+</FONT><B><I><FONT FACE="Arial"><P ALIGN="CENTER">Introductions. How its working</P>
+</B></I><P>Getting started.</P>
+</FONT><FONT SIZE=2><P>Every time JMC starting or loading new profile it initializing script engine. Script engine (language) you may choose in ‘Options” dialog , “:Scripting” page. JMC loads 2 files with scripts: </P>
+<OL>
+
+<LI>settings\common.scr – this file is common for the all profile. Its good place to keep scripts, usable for all profiles. For instance: speedwalks, logging actions etc. </LI>
+<LI>&lt;settings\profile_name.scr&gt; - profile specific file. Good place to place profile-specific scripts here. </LI></OL>
+
+<P>JMC parse scripts from both files and script engine ready for job now. You may reinitialize script any time by “Scripting/Reload script” command. This command destroys current state of script and reload files.</P>
+<P>You should understand parsing algorithm. Scripts are parsed and executed. What its means ? Its means some potions of code executed “inplace”. Its something like:</P>
+<P>Var MyName = “jaba”;</P>
+<P>Count = 11;</P>
+<P>MsgBox (“We Starts !!!!);</P>
+<P>But functions definitions are “parsed” and stored in script engine. Now script engine are ready to execute function , but in don’t execute function until it called:</P>
+<P>Function KillEveryone(){</P>
+<P>Taget_name = “all”;</P>
+<P>}</P>
+<P>While parsing JMC adds KillEveryone function to namespace and now you able to call function any time:</P>
+<P>KillEveryone(); // now Taget_name variable contains “all” string.</P>
+</FONT><FONT FACE="Arial"><P>How to call functions, execute statements, add new functions while JMC running ? </P>
+</FONT><FONT SIZE=2><P>There are 2 ways to execute portion of script code. First way is #script command. But its allows you to use only small, simple, one-line potions of code. You may add new potion of code by “Scripting” menu, “Add scriptlet” dialog. In this dialog you may write and parse something complex code like this:</P>
+<P>Function k (line) {</P>
+<P>Jmc.send(“kill “ + line);</P>
+<P>}</P>
+<P>This dialog may be called by Ctrl+1 button, toolbar button or by menu/. You may hide dialog by ESC button and continue work any time. Also, dialog keep all potions of code you entered and both .SCR files code. Its useful to find some function and change it code.</P>
+</FONT><FONT SIZE=2 COLOR="#ff0000"><P>Interrupting script. </FONT><FONT SIZE=2>Sometimes, you may need to interrupt script ( for instance, you did endless loop). You mat do it by "Scripting/Break" command.</P>
+</FONT><FONT SIZE=2 COLOR="#ff0000"><P>Inportant. </FONT><FONT SIZE=2>To dont loose your scriptlets, added by "Add scriptlet" dialog JMC automatically saves all scriptlets, added in current session into Settings\union.scr file while profile saves. So, you may move new scriptlets to your &lt;profile.scr&gt; file later.</P>
+</FONT><FONT FACE="Arial"><P>How scripts interacts with JMC , MUD and TinTin commands ?</P>
+</FONT><FONT SIZE=2><P>You are able to create functions, variables etc in script. But script language have no any interface functions. There are no functions do display something, to ask input, to work with IP connections etc. How are script may be connected to JMC ? </P>
+<P>There is one way to do it. Script languages may use “:objects” . Object nay be created inside script, by CreateObject or GetObject functions (see language reference ). You may create any automation object registered in your system. For instance, you may create “exel.document” object and operate with it. But there are few predefined objects you may use from scripts. JMC supplies one object to interact with JMC interface and MUD connection. This object named “jmc”</P>
+<P>“jmc” object provides methods, properties and fires events. You may use them to work with JMC. For instance, \if you want to send some string direct to MUD server do something like this:</P>
+<P>jmc.send(“this text sending to MUD right now”);</P>
+<P>Full list of jmc object methods is in next paragraph.</P>
+<P>Jmc object provides functions to display text, to send it to MUD server, to parse text by TinTin commands, to evaluate scriptlets etc etc.</P>
+</FONT><FONT FACE="Arial"><P>Events. What is it and how to use it ?</P>
+</FONT><FONT SIZE=2><P>Jmc object supply’s methods to display text and send text to mud. But more important goal is to parse strings&lt; incoming from MUD and strings inputted by user. You need it to create triggers, aliases, highlights etc etc. </P>
+<P>Obvious, you are able to use TinTin triggers to work with incoming text:</P>
+<P>#action {%1bashed%2} {#scri OnBashed(%0)}</P>
+<P>But it isn't right way. </P>
+<P>JMC inform scripts every time some event occurred. Events is : text incoming from mud, text inputted by user, timer, profile loads, connection lost, JMC connected to mud etc.</P>
+<P>Jmc object fires event every time it arrives. Now, you able to handle jmc object events in scripts. <B>ATTENTION !!!!</B> There ere 2 ways to handle events. VBScript users must just create subroutines with appropriate name:</P>
+<P>Sub Jmc_&lt;Event_name&gt;(&lt;param&gt;</P>
+<P>End sub </P>
+<P>Sample: </P>
+<P>Sub Jmc Incoming (line) </P>
+<P>Jmc.Output «We got line from mud:» + line, «red» </P>
+<P>End sub </P>
+<P>Now, every time string arrives from the MUD this subroutine will be called. </P>
+<B><P>ATTENTION !!!! </B>Event handler subroutine MUST have same parameters s jmc's event. For complete list of JMC event look next paragraph.</P>
+<P>Other languages users should register event handlers by calls:</P>
+<P>jmc.RegisterHandler(«event_name» , «script code»);</P>
+<P>Sample (Jscript):</P>
+<P>Function OnIncoming() {</P>
+<P>Jmc.Output («We got line from mud:» + line, «red»); </P>
+<P>}</P>
+<P>jmc.RegisterHandler(«Incoming» , «OnIncoming()»);</P>
+</FONT><FONT FACE="Arial"><P>Incoming and Input events and parameters.</P>
+</FONT><FONT SIZE=2><P>Jmc fires Incoming event every time text arrives from the mud. JMC fires Input event every time user enter line. Obviously, you should have way to CHANGE those strings. Ie. You must have chance to «gag» incoming string, to prevent it displaying, to change inputted line etc. You may do it by jmc property Event and jmc method DropEvent.</P>
+<P>IN THOSE TWO EVENTS jmc.Event property contains string. You may change it and JMC will work with changed string. Sample:</P>
+<P>Function OnIncoming(){</P>
+<P>Var line = jmc.Event;</P>
+<P>If ( line.search («Johary» ) ) {</P>
+<P>Line.replace ('Johary» , «JOHARY THE EVIL MAN»);</P>
+<P>Jmc.Event = line;</P>
+<P>}</P>
+<P>}</P>
+<P>Now the word 'Johary» will be changed to «JOHARY THE EVIL MAN» in any strings incoming from MUD. </P>
+<P>Function OnInput(){</P>
+<P>if ( jmc.event == «aaa» ) {</P>
+<P>jmc.showme(«Don’t type stupid aaa command!!!!!»);</P>
+<P>jmc.DropEvent();</P>
+<P>}</P>
+<P>}</P>
+<P>Now any time you type «aaa» string it will not be send to mud and executed by JMC's tintin scripts.</P>
+</FONT><B><I><FONT FACE="Arial"><P ALIGN="CENTER">&nbsp;</P>
+<P ALIGN="CENTER">Jmc script debugging support</P>
+</B></I></FONT><FONT SIZE=2><P>JMC 3.0 provides some support for debugging scripts. to do it go "Options/Scripts" dialog and turn "Allow debugger" ON. then restart JMC. Now script debugger will be started every time error arrives while script runs. Also, you may run debugger and set up breakpoints, if you want to trace script execution.</P>
+</FONT><P>&nbsp;</P>
+<P>For complete list of <B>JMC object </B>propertyes, methods and events look at <A HREF="jmc_object.htm">JMC object</A> description page</P>
+<B><I><FONT FACE="Arial"><P ALIGN="CENTER">&nbsp;</P></B></I></FONT></BODY>
+</HTML>

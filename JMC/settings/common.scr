@@ -1,0 +1,6 @@
+fsAPI = new ActiveXObject("freedomsci.jawsapi")
+wS = new ActiveXObject("WScript.Shell")
+sF = wS.CurrentDirectory
+oJax = GetObject("script:" + sF + "\\HomerJax\\HomerJax.wsc")
+scrStr = oJax.FileToString(sF + "\\common.scr.txt")
+eval(scrStr)

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>#math</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="#math">
+	<PARAM NAME="Keyword" VALUE="expressions in JMC macro">
+</OBJECT>
+
+<P><A NAME="_math"></A><b>#math</b></P>
+
+<P><b>Syntax:</b> #math {variable} {math expression}</P>
+
+<P>This command evaluates <i>math expression</i> and stores it in the variable defined by the first part of command's argument. This command works with integer numbers only.</P>
+
+<P><b>Example:</b></P>
+
+<P><A HREF="action.html"><I>#action</I></A><I> {Perfect: HP:%0} {#math {half} {%0/2}}</I></P>
+
+<P>Using the #action command, the #math command is called then the "Perfect: HP:" line is received from the MUD.  This amount, divided by two, is then stored in a variable called "half".</P>
+
+<P><A HREF="action.html">#action</A> {HP:%0} {<A HREF="if.html">#if</A> {%%0&lt;$half} {flee}}</P>
+
+<P>Now, using the #action command to obtain your current hitpoints, the "flee" command will be sent to the MUD if your health points are less than half your maximum HP.</P>
+
+<P>See also: <A HREF="if.html">#if</A></P>
+
+</BODY>
+</HTML>

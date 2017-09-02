@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>#tickset</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="#tickset">
+	<PARAM NAME="Keyword" VALUE="ticker">
+</OBJECT>
+
+<P><A NAME="_tickset"></A><b>#tickset</b></P>
+
+<P><b>Syntax:</b> #tickset</P>
+
+<P>Resets the tickcounter. It's good to synchronise your tickcounter and a MUD's tickcounter. The MUD's tick size isn't constant (the server may lose a few seconds while starting a new tick, or due to network lag, it might lose or gain a few seconds).  So, it's best to synchronise your tick counter from time to time.  A good place to do it is on events, arriving when a MUD starts a new tick ("You are hungry" message, messages about day start/end, etc.).</P>
+
+<P>See also: <A HREF="tick.html">#tick</A>, <A HREF="tickon.html">#tickon</A>, <A HREF="tickoff.html">#tickoff</A>, <A HREF="ticksize.html">#ticksize</A></P>
+
+</BODY>
+</HTML>

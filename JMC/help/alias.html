@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>#alias</TITLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<P><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"><OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"><PARAM NAME="Keyword" VALUE="#alias"></OBJECT></P>
+<B><P><A NAME="_alias"></A>#alias</P>
+<P>Syntax:</B> #alias {&lt;alias name&gt;} {&lt;commands&gt;} [group_name]</P>
+<P>The #alias command replaces a large string or a string of JMC's commands. Basically, it allows the user to create a "shortcut" to a command or string of text. Whenever the user types an alias name, JMC will replace it with the second part of the alias. The variables %0-%9 may be used in the commands, and can contain the arguments of an alias. The %0 variable contains the rest of the string, following the actual alias. Variables %1-%9 contain words of the string.</P>
+<P>By default alias creates into group named “default”. </P>
+<B><P>Example:</P>
+</B><I><P>#alias {k} {kill %1} {common}</P>
+</I><P>Now, every time you type "k dragon" the string "kill dragon" will be sent to a MUD. This alias assigned to group named <B>“common”.</P>
+<P>Example:</P>
+</B><I><P>#alias putex {put %1 into %2;</I><A HREF="showme.html"><I>#showme</I></A><I> {%0 done}}</P>
+</I><P>Now you can type "putex bread chest". The string "put bread into chest" will be sent to the MUD and the string "bread chest done" will be shown for you. In this example the %0 variable contains "bread chest", %1 contains "bread" and %2 contains "chest".</P>
+<P>If the second parameter of the <B>#alias</B>command doesn't exist, then JMC will show you all defined aliases with a name that matches the first argument.</P>
+<B><P>Example:</P>
+</B><I><P>#alias k</P>
+</I><P>When you type this command, JMC will show the (predefined) alias named "k" to you.</P>
+<I><P>#alias*get*</P>
+</I><P>JMC will show all aliases, containing "get" in the alias definition, for you.</P>
+<P>If #alias is used without any arguments, then JMC will list all defined aliases for you.</P>
+<P>See also: <A HREF="unalias.html">#unalias</A> <A HREF="group_descr.html">JMC commands groups</A> <A HREF="group.html">#group</A></P></BODY>
+</HTML>

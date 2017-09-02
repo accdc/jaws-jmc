@@ -1,0 +1,103 @@
+[RichEdit and Edit Control Options]
+UseOSM=1
+[KeyLabels]
+Return=0|Enter
+Clear=1|Clear
+Tab=0|Tab
+Back=0|Backspace
+Cancel=1|break
+Escape=0|Escape
+Capital=1|Caps lock
+Pause=1|Pause
+Menu=1|Alt
+Control=1|Control
+Shift=1|Shift
+Print=1|Print Screen
+Help=1|Help
+Delete=1|Delete
+Insert=1|Insert
+SnapShot=1|Print screen
+Execute=1|Execute
+Select=1|Select
+Down=0|Down arrow
+Right=0|Right arrow
+Up=0|Up arrow
+Left=0|Left arrow
+Home=0|Home
+End=0|End
+Next=0|Page down
+Prior=0|Page up
+Space=0|Space
+Numbers=1|Numbers
+Letters=1|Letters
+Apps=1|Applications
+RWin=1|windows
+LWin=1|windows
+Divide=1|/
+Decimal=1|Delete
+Subtract=1|-
+Separator=1|Separator
+Add=1|+
+Multiply=1|*
+NumPad9=1|Page up
+NumPad8=1|Up arrow
+NumPad7=1|home
+NumPad6=1|Right arrow
+NumPad5=1|5
+NumPad4=1|Left arrow
+NumPad3=1|Page down
+NumPad2=1|Down arrow
+NumPad1=1|end
+NumPad0=1|insert
+F16=0|F16
+F15=0|F15
+F14=0|F14
+F13=0|F13
+F12=0|F12
+F11=0|F11
+F10=0|F10
+F9=0|F9
+F8=0|F8
+F7=0|F7
+F6=0|F6
+F5=0|F5
+F4=0|F4
+F3=0|F3
+F2=0|F2
+F1=0|F1
+F24=0|F24
+F23=0|F23
+F22=0|F22
+F21=0|F21
+F20=0|F20
+F19=0|F19
+F18=0|F18
+F17=0|F17
+Scroll=1|Scroll lock
+NumLock=1|Num lock
+ModifiedPrintable=1|modified printable
+Symbols=1|Symbols
+OEM_clear=1|Clear
+PA1=1|Pa1
+Zoom=1|Zoom
+Play=1|Play
+ErEOF=0|applications
+ExSel=1|Exsel
+CrSel=1|Crsel
+Attn=1|Attention
+[WindowClasses]
+Edit=Edit
+[SAPI 5X-GlobalContext]
+VoiceName=Acapela Telecom HQ TTS English (US) (Heather 22 kHz)
+[SAPI 5X-KeyboardContext]
+VoiceName=Acapela Telecom HQ TTS English (US) (Heather 22 kHz)
+[SAPI 5X-PCCursorContext]
+VoiceName=Acapela Telecom HQ TTS English (US) (Heather 22 kHz)
+[SAPI 5X-JAWSCursorContext]
+VoiceName=Acapela Telecom HQ TTS English (US) (Heather 22 kHz)
+[SAPI 5X-MessageContext]
+VoiceName=Acapela Telecom HQ TTS English (US) (Heather 22 kHz)
+[OSM]
+IncludeGraphics=1
+[options]
+Punctuation=0

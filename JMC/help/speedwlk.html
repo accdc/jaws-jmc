@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>#speedwalk</TITLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<P><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"><OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"><PARAM NAME="Keyword" VALUE="#speedwalk"><PARAM NAME="Keyword" VALUE="speedwalking in JMC"></OBJECT></P>
+<B><P><A NAME="_speedwalk"></A>#speedwalk</P>
+<P>Syntax:</B> #speedwalk [on/off]</P>
+<P>This option toggles the "speedwalking mode" ON/OFF. Speedwalking is the ability to issue multiple direction commands in the one command. Every command typed by the user and containing ONLY n,s,e,w,d,u and digit symbols is assumed to be a "speedwalk". This means the command will be split into seperate movement commands and then sent to the MUD. You can also use a repeat counter (numbers) before a direction symbol to indicate how many times that direction should be repeated.</P>
+<P>Second parameter of this command is not necessary. Valid values is "ON" or "OFF". If you don’t use it JMC will change current speedwalk   state to the inverted state.</P>
+<B><P>&nbsp;</P>
+<P>Example:</P>
+</B><I><P>2ned4s </P>
+</I><P>n n e d s s s s commands will be sent to the MUD.</P>
+<P>When the "speedwalk" mode is OFF a command of such type will be sent to MUD as is. <B>NOTE!</B> When the "speedwalking" mode is ON you cant use commands like "news" (to issue a command to the MUD that contains only speedwalk letters, change one (or more) of the letters to a capital, e.g. "News").</P></BODY>
+</HTML>

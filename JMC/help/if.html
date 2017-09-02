@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>#if</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="#if">
+	<PARAM NAME="Keyword" VALUE="expressions in JMC macro">
+</OBJECT>
+
+<P><A NAME="_if"></A><b>#if</b></P>
+
+<P><b>Syntax:</b> #if {condition} {commands to do}</P>
+
+<P>When you use the #if command JMC evaluates <i>condition</i> and if the result is different from the 0 (TRUE) value it executes the commands, defined in the second part of #if.</P>
+
+<P>Attention! You cant compare strings. It working only with "digits" - numbers and variables representing numbers.</P>
+
+<P><b>Example:</b></P>
+
+<P><A HREF="action.htm"><I>#action</I></A><I> {HP:%0&gt;} {#if {%%0&lt;50} {recite recall}}</I></P>
+
+<P>If your hitpoints, displayed in statusline (and parsed through an <A HREF="action.htm">#action</a> command), are less when 50 then the text "recite recall" will be sent to the MUD as if you had typed them in yourself.  The %%0 variable belongs to the action command, and not to the if portion of this example.  That’s why the double % are needed.</P>
+
+<P>See also: <A HREF="math.htm">#math</A></P>
+
+</BODY>
+</HTML>

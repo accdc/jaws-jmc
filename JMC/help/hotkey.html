@@ -1,0 +1,147 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>#hotkey</TITLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<P><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"></P>
+<object TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"><param name="Keyword" value="#hotkey"><param name="Keyword" value="hotkeys"></object>
+<B><P><A NAME="_hotkey"></A>#hotkey</P>
+<P>Syntax:</B> #hokey {key name} {string to be typed}</P>
+<P>This command defines a new hotkey or redefines an existing hotkey. When you press this key on your keyboard the second parameter will be parsed into JMC, as if it been typed in the editline of JMC. This allows the use of variables, aliases, and the like.</P>
+<P>Keyname syntax:</P>
+<I><P>[shift+][ctrl+][alt+][key name]</P>
+<P>Keyname</I> can be a character, digit or special key string. </P>
+<P>Special key strings:</P>
+<TABLE BORDER CELLSPACING=1 BORDERCOLOR="#000000" WIDTH=410>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>BACK</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Backspace key</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>TAB</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Tab key</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>ENTER </TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Enter</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>ESC </TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Escape</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>SP</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Space bar</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>PGUP</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Page up </TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>PGDN</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Page down </TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>END</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>End key</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>HOME</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Home key</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>LEFT</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Left arrow</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>UP</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Up arrow</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>RIGHT </TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Right arrow</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>DOWN </TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Down arrow</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>INS </TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Insert key</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>DEL </TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Delete key</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>NUM0-NUM9</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Digits on the extended keyboard (number pad)</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>MIN </TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>  - on extended keyboard</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>MUL</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P> * on extended keyboard</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>ADD</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>   + on extended keyboard</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>DIV</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Divide on extended keyboard</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>NUMDEL</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>DEL on extended keyboard</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>RETURN</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P> Enter on extended keyboard</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>: = , - . / ` [ \\ ] ‘</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>Same keys on keyboard</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="MIDDLE">
+<P>F1-F12</TD>
+<TD WIDTH="75%" VALIGN="MIDDLE">
+<P>F keys</TD>
+</TR>
+</TABLE>
+
+<B><P>Example:</P>
+</B><I><P>#hotkey Ctrl+z {</I><A HREF="zap.html"><I>#zap</I></A><I>}</P>
+<P>#hotkey {alt+c} {</I><A HREF="connect.html"><I>#connect</I></A><I> mud.arctic.org 2700}</P>
+<P>#hotkey f1 flee</P>
+<P>#hotkey ctrl+f5 rescue Lesath</P>
+</I><P>&nbsp;</P></BODY>
+</HTML>

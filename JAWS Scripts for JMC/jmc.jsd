@@ -1,0 +1,1018 @@
+:function AutoStartEvent
+:SearchRank 1
+
+:function AutoFinishEvent
+:SearchRank 1
+
+:function setGlobalValues
+:SearchRank 1
+
+:function focusChangedEvent
+:SearchRank 1
+:Param handle/FocusWindow No Description
+:Param handle/PrevWindow No Description
+
+:function focusChangedValues
+:Returns int No Return Description
+:SearchRank 1
+:Param handle/FocusWindow FocusWindow
+
+:function getMainWHndl
+:Returns handle No Return Description
+:SearchRank 1
+
+:function parseIncomingString
+:SearchRank 1
+:Param string/bfr Incoming buffer string
+
+:function isImportant
+:Returns int No Return Description
+:SearchRank 1
+:Param string/bfr No Description
+
+:script toggleSpeach
+:SearchRank 1
+:Synopsis Toggles the speaking of incoming messages
+
+:function getMainEHndl
+:Returns handle No Return Description
+:SearchRank 1
+
+:script makeVirtualCopy
+:SearchRank 1
+:Synopsis Displays a virtual copy of the main window
+
+:script copyCurrentWord
+:SearchRank 1
+:Synopsis Copies the current word to the clipboard, regardless which cursor is used.
+
+:script copyCurrentLine
+:SearchRank 1
+:Synopsis Copies the current line at the cursor
+
+:script virtualizeWindow
+:SearchRank 1
+
+:script copyMainWindow
+:SearchRank 1
+:Synopsis Copies the main window to the clipboard
+
+:script switchProfile
+:SearchRank 1
+:Synopsis Switches between the various profiles that you have saved
+
+:function getProfiles
+:Returns string No Return Description
+:SearchRank 1
+
+:script swPfl
+:SearchRank 1
+:Synopsis Allows you to quickly switch between profiles
+
+:script curPfl
+:SearchRank 1
+:Synopsis Speaks the abbreviated name of the currently running profile
+
+:script rsDefault
+:SearchRank 1
+:Synopsis Resets profile settings back to the default
+
+:script newPfl
+:SearchRank 1
+:Synopsis Assigns a customized profile to use with a new game
+
+:function selectPflSlot
+:Returns string No Return Description
+:SearchRank 1
+:Param string/checkNm No Description
+
+:script remPfl
+:SearchRank 1
+:Synopsis Removes the specified profile from the list
+
+:function removePflSections
+:SearchRank 1
+:Param string/rint No Description
+
+:function getInterValues
+:SearchRank 1
+
+:script addInterruptValue
+:SearchRank 1
+:Synopsis Adds a custom interrupt value to the current profile
+
+:function interP
+:Returns string No Return Description
+:SearchRank 1
+:Param string/pVal No Description
+
+:script remInterruptValue
+:SearchRank 1
+:Synopsis Removes a custom interrupt value from the current profile
+
+:script viewInterruptValues
+:SearchRank 1
+:Synopsis Generates a list of all interrupt values for the current profile
+
+:function getInterruptStrings
+:Returns string No Return Description
+:SearchRank 1
+
+:script toggleIs
+:SearchRank 1
+:Synopsis toggles the use of interrupt values for the current profile
+
+:script toggleRetypeWithEnterKey
+:SearchRank 1
+:Synopsis Toggles the automatic re typing of text when using the enterKey
+
+:function keyPressedEvent
+:SearchRank 1
+:Param int/nKey No Description
+:Param string/strKeyName No Description
+:Param int/nIsBrailleKey No Description
+:Param int/nIsScriptKey No Description
+
+:script openNoteFile
+:SearchRank 1
+:Synopsis Opens the personal note file for browsing and editing
+
+:script interCaseSensitive
+:SearchRank 1
+:Synopsis Toggles whether inter values are case sensitive for the current profile
+
+:function interToLowerCase
+:Returns string No Return Description
+:SearchRank 1
+:Param string/cnvs No Description
+
+:function getInterCs
+:Returns string No Return Description
+:SearchRank 1
+:Param string/rtns No Description
+
+:script checkInterCs
+:SearchRank 1
+:Synopsis indicates whether interrupt values are set to case sensitive detection
+
+:function dValT
+:Returns string No Return Description
+:SearchRank 1
+:Param string/ctm No Description
+:Param int/segment No Description
+:Param string/strhh No Description
+:Param int/strlng No Description
+
+:function separateDValT
+:Returns int No Return Description
+:SearchRank 1
+:Param int/sgmnt No Description
+:Param int/intVl No Description
+
+:function resTGlSt
+:Returns string No Return Description
+:SearchRank 1
+
+:function divideNms
+:SearchRank 1
+:Param string/appnd No Description
+:Param string/rtnStr No Description
+
+:function rtnStrRemSection
+:SearchRank 1
+:Param string/rt No Description
+:Param string/ppnd No Description
+
+:script tst
+:SearchRank 1
+:Synopsis Clears all ini file entries
+
+:script cleanDefaultPfl
+:SearchRank 1
+:Synopsis Cleans all values from the default profile
+
+:script OpenJmcHlp
+:SearchRank 1
+:Synopsis opens the GMud32 help file
+
+:function vlTarget
+:SearchRank 1
+
+:script ctrlKey
+:SearchRank 1
+
+:script openHlpFile
+:SearchRank 1
+:Synopsis Gets jaws specific help
+
+:function getIgnorValues
+:SearchRank 1
+
+:function ignorP
+:Returns string No Return Description
+:SearchRank 1
+:Param string/pVal No Description
+
+:script viewIgnorValues
+:SearchRank 1
+:Synopsis lists the ignore values for the current profile
+
+:function getIgnorStrings
+:Returns string No Return Description
+:SearchRank 1
+
+:script addIgnorValue
+:SearchRank 1
+:Synopsis Adds a new ignore string to the current profile
+
+:function getIgnorCs
+:Returns string No Return Description
+:SearchRank 1
+:Param string/rtns No Description
+
+:script remIgnorValue
+:SearchRank 1
+:Synopsis Removes an ignore string from the current profile
+
+:script ignorCaseSensitive
+:SearchRank 1
+:Synopsis Toggles case sensitivity for the ignore strings in the current profile
+
+:script toggleIsIg
+:SearchRank 1
+:Synopsis Toggles the use of ignore values for the current profile
+
+:script checkIgnorCs
+:SearchRank 1
+:Synopsis speaks whether ignore value case sensitivity is active for the current profile
+
+:function validateIni
+:SearchRank 1
+
+:function isImportantIg
+:Returns int No Return Description
+:SearchRank 1
+:Param string/bfr No Description
+
+:script maxResScreen
+:SearchRank 1
+:Synopsis Toggles the maximizing or restoring of the screen size
+
+:script checkMaxResScreen
+:SearchRank 1
+:Synopsis indicates whether or not the screen is currently maximized
+
+:script toggleIBt
+:SearchRank 1
+:Synopsis toggles  the use of the reverse message buffer
+
+:script readFBToT
+:SearchRank 1
+:Synopsis Reads the message buffer from bottom to top
+
+:script toggleITb
+:SearchRank 1
+:Synopsis toggles the use of the forward message buffer
+
+:script readFTToB
+:SearchRank 1
+:Synopsis Reads the message buffer from top to bottom
+
+:script toggleEntKMsgBfrReset
+:SearchRank 1
+:Synopsis Toggles the various refresh options for the reverse and forward message buffers
+
+:function cutMsgBfrSegments
+:Returns string No Return Description
+:SearchRank 1
+:Param string/strm No Description
+
+:script makeVirtualCopyOfBt
+:SearchRank 1
+:Synopsis makes a virtual copy of the reverse message buffer
+
+:script makeVirtualCopyOfTb
+:SearchRank 1
+:Synopsis makes a virtual copy of the forward message buffer
+
+:function trkSch
+:SearchRank 1
+
+:script dnldNewVersion
+:SearchRank 1
+:Synopsis Speaks the currently running version of the scripts
+
+:script ToggleNavMode
+:SearchRank 1
+:Synopsis Toggles Navigation mode on or off
+
+:function commandCharInitialize
+:Returns string No Return Description
+:SearchRank 1
+
+:function getNavVs
+:SearchRank 1
+
+:function checkCommandChar
+:SearchRank 1
+
+:script enterKey
+:SearchRank 1
+
+:function refreshSpamFilters
+:SearchRank 1
+
+:function commandCharEnter
+:SearchRank 1
+:Param string/gln No Description
+:Param int/iln No Description
+
+:function setCChar
+:SearchRank 1
+:Param string/c No Description
+
+:function isMainWndw
+:Returns int No Return Description
+:SearchRank 1
+
+:function getNavKvl
+:Returns string No Return Description
+:SearchRank 1
+:Param int/nkvl No Description
+:Param string/kstrv No Description
+
+:script UpA
+:SearchRank 1
+:Synopsis moves the character north using quick navigation mode
+
+:script upP
+:SearchRank 1
+:Synopsis moves the character north east using quick navigation mode
+
+:script rightA
+:SearchRank 1
+:Synopsis moves the character east using quick navigation mode
+
+:script downP
+:SearchRank 1
+:Synopsis moves the character south east using quick navigation mode
+
+:script downA
+:SearchRank 1
+:Synopsis moves the character south using quick navigation mode
+
+:script endK
+:SearchRank 1
+:Synopsis moves the character south west using quick navigation mode
+
+:script leftA
+:SearchRank 1
+:Synopsis moves the character west using quick navigation mode
+
+:script homeK
+:SearchRank 1
+:Synopsis moves the character north west using quick navigation mode
+
+:script np5
+:SearchRank 1
+:Synopsis moves the character up using quick navigation mode
+
+:script np5ctrl
+:SearchRank 1
+:Synopsis moves the character down using quick navigation mode
+
+:function refreshBuffers
+:SearchRank 1
+
+:function clearLine
+:SearchRank 1
+
+:function navType
+:SearchRank 1
+:Param int/kvl No Description
+
+:script ResetNav
+:SearchRank 1
+:Synopsis Resets the quick navigation directions to their default values
+
+:function integrateNav
+:SearchRank 1
+
+:function pathDir
+:SearchRank 1
+:Param string/p1 No Description
+:Param string/p2 No Description
+
+:script changeN
+:SearchRank 1
+:Synopsis Changes the quick navigation string for North
+
+:script changeNE
+:SearchRank 1
+:Synopsis Changes the quick navigation string for north east
+
+:script changeE
+:SearchRank 1
+:Synopsis Changes the quick navigation string for east
+
+:script changeSE
+:SearchRank 1
+:Synopsis Changes the quick navigation string for South east
+
+:script changeS
+:SearchRank 1
+:Synopsis Changes the quick navigation string for South
+
+:script changeSW
+:SearchRank 1
+:Synopsis Changes the quick navigation string for south west
+
+:script changeW
+:SearchRank 1
+:Synopsis Changes the quick navigation string for west
+
+:script changeNW
+:SearchRank 1
+:Synopsis Changes the quick navigation string for North west
+
+:script changeU
+:SearchRank 1
+:Synopsis Changes the quick navigation string for Up
+
+:script changeD
+:SearchRank 1
+:Synopsis Changes the quick navigation string for down
+
+:script macEscK
+:SearchRank 1
+:Synopsis Assigns a macro to the escape key
+
+:script macTabK
+:SearchRank 1
+:Synopsis Assigns a macro to the tab key
+
+:script macInsK
+:SearchRank 1
+:Synopsis Assigns a macro to the insert key
+
+:script mEscK
+:SearchRank 1
+
+:script mTabK
+:SearchRank 1
+
+:script mInsK
+:SearchRank 1
+
+:script changeForwardBfrLen
+:SearchRank 1
+:Synopsis Allows you to modify the forward message buffer length
+
+:script ChangeReverseBfrLen
+:SearchRank 1
+:Synopsis Allows you to modify the reverse message buffer length
+
+:function getAmpSection
+:Returns string No Return Description
+:SearchRank 1
+:Param string/rtns No Description
+
+:function getAmpValues
+:SearchRank 1
+
+:script ampCaptureNext
+:SearchRank 1
+:Synopsis Captures the next output message, and adds it as an auto map ignore string
+
+:script addAmpNew
+:SearchRank 1
+:Synopsis Opens a field where you can type an auto map ignore string manually
+
+:function addAmpString
+:SearchRank 1
+:Param string/vl No Description
+
+:function getAmpStrings
+:Returns string No Return Description
+:SearchRank 1
+
+:script viewAmpIgnoreStrings
+:SearchRank 1
+:Synopsis Shows a list of all current auto map ignore strings
+
+:script RemAmpString
+:SearchRank 1
+:Synopsis Removes the specified auto map ignore string
+
+:script toggleAmp
+:SearchRank 1
+:Synopsis Toggles the auto map feature
+
+:function ampIsIgnoreString
+:Returns int No Return Description
+:SearchRank 1
+:Param string/bf/ByRef No Description
+
+:function ampRcd
+:SearchRank 1
+:Param string/bf No Description
+:Param string/dr No Description
+
+:function ampIsCorrectDr
+:Returns int No Return Description
+:SearchRank 1
+:Param string/fdr No Description
+
+:function ampReverseDr
+:Returns string No Return Description
+:SearchRank 1
+:Param string/fdr No Description
+:Param string/rdr No Description
+:Param int/drnm No Description
+
+:function ampCheckCt
+:Returns int No Return Description
+:SearchRank 1
+:Param int/frst No Description
+:Param int/sec No Description
+
+:script AmpClearRoutes
+:SearchRank 1
+:Synopsis Will clear both tracks of the current auto map coordenance
+
+:script ampCopyFRoute
+:SearchRank 1
+:Synopsis Copies the forward auto map track to the clipboard
+
+:script ampCopyBRoute
+:SearchRank 1
+:Synopsis Copies the backward auto map track to the clipboard
+
+:function ampRetrace
+:Returns int No Return Description
+:SearchRank 1
+
+:function getNavSection
+:Returns string No Return Description
+:SearchRank 1
+:Param string/rtns No Description
+
+:function getMacSection
+:Returns string No Return Description
+:SearchRank 1
+:Param string/rtns No Description
+
+:function getSpamSection
+:Returns string No Return Description
+:SearchRank 1
+:Param string/rtns No Description
+
+:script toggleSpamFilter
+:SearchRank 1
+:Synopsis Toggles spam filtering and repeat message suppression
+
+:script toggleSpamLeadTrail
+:SearchRank 1
+:Synopsis Toggles the leading and trailing spam filter responses
+
+:script toggleSpamRefresh
+:SearchRank 1
+:Synopsis Toggles the spam filter to be refreshed when the enter key is pressed
+
+:function spamF
+:SearchRank 1
+:Param string/msg No Description
+:Param string/lst No Description
+
+:function spamCycleSv
+:SearchRank 1
+:Param string/nmsg/ByRef No Description
+:Param int/switch/ByRef No Description
+
+:function spamSuppress
+:Returns int No Return Description
+:SearchRank 1
+:Param string/nmsg No Description
+
+:function isCompString
+:Returns int No Return Description
+:SearchRank 1
+:Param string/bfr No Description
+
+:function compSplit
+:Returns string No Return Description
+:SearchRank 1
+:Param string/knm No Description
+:Param string/half No Description
+:Param string/sect No Description
+:Param int/isAct isAct
+
+:function getCompValues
+:SearchRank 1
+
+:function getCompSection
+:Returns string No Return Description
+:SearchRank 1
+:Param string/rtns No Description
+
+:script addCompNew
+:SearchRank 1
+:Synopsis Adds a new Ignore comparison string to the list
+
+:function addCompString
+:SearchRank 1
+:Param string/vl No Description
+:Param string/act act
+
+:script RemCompString
+:SearchRank 1
+:Synopsis Removes an ignore comparison string from the list
+
+:script viewCompIgnoreStrings
+:SearchRank 1
+:Synopsis Shows all of the ignore comparison strings currently listed
+
+:function getCompStrings
+:Returns string No Return Description
+:SearchRank 1
+
+:function getCompTValues
+:SearchRank 1
+
+:function getCompTSection
+:Returns string No Return Description
+:SearchRank 1
+:Param string/rtns No Description
+
+:script addCompTNew
+:SearchRank 1
+:Synopsis Adds a new interrupt comparison string to the list
+
+:function addCompTString
+:SearchRank 1
+:Param string/vl No Description
+
+:script RemCompTString
+:SearchRank 1
+:Synopsis Removes an interrupt comparison string from the list
+
+:script viewCompTStrings
+:SearchRank 1
+:Synopsis Shows all of the interrupt comparison strings currently listed
+
+:function getCompTStrings
+:Returns string No Return Description
+:SearchRank 1
+
+:function isCompTString
+:Returns int No Return Description
+:SearchRank 1
+:Param string/bfr No Description
+
+:function getTrimSection
+:Returns string No Return Description
+:SearchRank 1
+:Param string/rtns No Description
+
+:script addTrimLNew
+:SearchRank 1
+:Synopsis Specifies a new value for both the trim leading and trim trailing string functions
+
+:script addTrimCh
+:SearchRank 1
+:Synopsis Sets the numerical reference for both the trim leading and trim trailing string functions
+
+:function trimString
+:Returns string No Return Description
+:SearchRank 1
+:Param string/bfr No Description
+:Param int/tt No Description
+:Param int/ln No Description
+:Param int/tn No Description
+
+:script trimToggle
+:SearchRank 1
+:Synopsis Toggles whether leading, trailing, or both ends of the string will be trimmed
+
+:function getWKeysSection
+:Returns string No Return Description
+:SearchRank 1
+:Param string/rtns No Description
+
+:function addNewConnection
+:Returns int No Return Description
+:SearchRank 1
+
+:script newConnect
+:SearchRank 1
+:Synopsis Quickly connects to the last mud accessed
+
+:script changeWN
+:SearchRank 1
+:Synopsis Allows you to assign a string command to the extra windows hotkey
+
+:script changeWNE
+:SearchRank 1
+:Synopsis Allows you to assign a string command to the extra windows hotkey
+
+:script changeWE
+:SearchRank 1
+:Synopsis Allows you to assign a string command to the extra windows hotkey
+
+:script changeWSE
+:SearchRank 1
+:Synopsis Allows you to assign a string command to the extra windows hotkey
+
+:script changeWS
+:SearchRank 1
+:Synopsis Allows you to assign a string command to the extra windows hotkey
+
+:script changeWSW
+:SearchRank 1
+:Synopsis Allows you to assign a string command to the extra windows hotkey
+
+:script changeWW
+:SearchRank 1
+:Synopsis Allows you to assign a string command to the extra windows hotkey
+
+:script changeWNW
+:SearchRank 1
+:Synopsis Allows you to assign a string command to the extra windows hotkey
+
+:script changeWNP5
+:SearchRank 1
+:Synopsis Allows you to assign a string command to the extra windows hotkey
+
+:script changeWNPSlash
+:SearchRank 1
+:Synopsis Allows you to assign a string command to the extra windows hotkey
+
+:script changeWNPStar
+:SearchRank 1
+:Synopsis Allows you to assign a string command to the extra windows hotkey
+
+:script changeWNPIns
+:SearchRank 1
+:Synopsis Allows you to assign a string command to the extra windows hotkey
+
+:function getWKeys
+:SearchRank 1
+:Param string/sect No Description
+
+:script swUp
+:SearchRank 1
+:Synopsis Custom windows hotkey
+
+:script swPUp
+:SearchRank 1
+:Synopsis Custom hotkey
+
+:script swRight
+:SearchRank 1
+:Synopsis Custom hotkey
+
+:script swPDown
+:SearchRank 1
+:Synopsis Custom hotkey
+
+:script swDown
+:SearchRank 1
+:Synopsis custom hotkey
+
+:script swEnd
+:SearchRank 1
+:Synopsis custom hotkey
+
+:script swLeft
+:SearchRank 1
+:Synopsis custom hotkey
+
+:script swHome
+:SearchRank 1
+:Synopsis custom hotkey
+
+:script swNP5
+:SearchRank 1
+:Synopsis custom hotkey
+
+:script swNPSlash
+:SearchRank 1
+:Synopsis custom hotkey
+
+:script swNPStar
+:SearchRank 1
+:Synopsis custom hotkey
+
+:script swNPIns
+:SearchRank 1
+:Synopsis custom hotkey
+
+:script PunctuationToggle
+:SearchRank 1
+:Param int/iRetCurVal No Description
+
+:script TypingEcho
+:SearchRank 1
+
+:script ToggleTrInterrupt
+:SearchRank 1
+:Synopsis Toggles whether keyboard speech output is stopped when a key is pressed
+
+:script toggleReadingInterrupt
+:SearchRank 1
+:Synopsis Toggles whether the enter key will stop speech output when pressed
+
+:script wndws
+:SearchRank 1
+:Synopsis Activates the auto tracking feature.
+
+:script addNewHostAndPort
+:SearchRank 1
+:Synopsis Allows you to quickly add a new game host and port info to GMud32
+
+:script QuickHelp
+:SearchRank 1
+:Synopsis Makes a virtual copy of the hotkey list for GMud32
+
+:script connectToURL
+:SearchRank 1
+:Synopsis Connects to the highlighted URL
+
+:script remAmpLastDir
+:SearchRank 1
+:Synopsis Removes the last movement direction from the map
+
+:script toggleAmpDel
+:SearchRank 1
+:Synopsis Toggles the use of automatic delay when using the auto retrace feature
+
+:script changeAmpDelVl
+:SearchRank 1
+:Synopsis allows you to Change the automatic delay value
+
+:script loadAmp
+:SearchRank 1
+:Synopsis Loads a new map into memory
+
+:script runLoadF
+:SearchRank 1
+:Synopsis Runs the map that was loaded into memory
+
+:script syncLoadF
+:SearchRank 1
+:Synopsis copies the map in the forward track to loaded memory
+
+:script resetJMCScripts
+:SearchRank 1
+
+:script ClearEditField
+:SearchRank 1
+:Synopsis Clears the edit field of text
+:Description Clears the edit field of text
+
+:function getHostList
+:Returns string No Return Description
+:SearchRank 1
+
+:function addNewHostToList
+:SearchRank 1
+:Synopsis Adds a new host to the list
+:Param string/cnm No Description
+:Param string/hst No Description
+:Param string/prt No Description
+
+:script RemHostFromList
+:SearchRank 1
+:Synopsis Removes the specified host from the list
+
+:script viewHostList
+:SearchRank 1
+:Synopsis Shows all of the available hosts currently listed
+
+:script clearHostList
+:SearchRank 1
+:Synopsis removes all hosts from the list
+
+:script connectToSpecifiedHost
+:SearchRank 1
+:Synopsis Allows you to quickly connect to a specific host
+
+:function setStptmr
+:SearchRank 1
+:Param int/tm No Description
+
+:function stptmr
+:SearchRank 1
+
+:script setDelString
+:SearchRank 1
+:Synopsis Allows you to enter the command you would like to have repeated a certain number of times
+
+:script delAction
+:SearchRank 1
+:Synopsis Activates the command loop from the message window
+
+:function dAction
+:SearchRank 1
+
+:function dSearch
+:SearchRank 1
+:Param string/bfr string to search
+:Param string/dSearch String to search for
+
+:script msg1
+:SearchRank 1
+
+:script msg2
+:SearchRank 1
+:Synopsis Speaks the previous message in the queue
+
+:script msg3
+:SearchRank 1
+:Synopsis Speaks the third message in the queue
+
+:script msg4
+:SearchRank 1
+:Synopsis Speaks the fourth message in the queue
+
+:script msg5
+:SearchRank 1
+:Synopsis Speaks the fifth message in the queue
+
+:script msgr1
+:SearchRank 1
+
+:script msgr2
+:SearchRank 1
+:Synopsis Speaks the previous reverse message in the queue
+
+:script msgr3
+:SearchRank 1
+:Synopsis Speaks the third reverse message in the queue
+
+:script msgr4
+:SearchRank 1
+:Synopsis Speaks the fourth reverse message in the queue
+
+:script msgr5
+:SearchRank 1
+:Synopsis Speaks the fifth reverse message in the queue
+
+:script kHandler
+:SearchRank 1
+:Synopsis Stores the copied string in a function key slot
+
+:script WriteFromSlot
+:SearchRank 1
+:Synopsis Writes the string stored in the selected slot
+
+:script SpecifySlotStringFilter
+:SearchRank 1
+:Synopsis Specifies the character you wish to be filtered out of all slot stored values
+
+:function isCompAct
+:Returns int No Return Description
+:SearchRank 1
+:Param string/a act
+:Param string/compA compA
+:Param string/compB compB
+:Param string/bfr bfr
+
+:script StopTracking
+:SearchRank 1
+:Synopsis Stops tracking
+
+:script quickNavHandler
+:SearchRank 1
+
+:script ToggleQuickNav
+:SearchRank 1
+:Synopsis Activates hyper nav mode
+
+:script NextDocumentWindow
+:SearchRank 1
+
+:script PreviousDocumentWindow
+:SearchRank 1
+
+:script altPassKeyThrough
+:SearchRank 1
+
+:script toggleLog
+:SearchRank 1
+
+:script toggleLogAppend
+:SearchRank 1
+
+:script toggleAutoLog
+:SearchRank 1
+
+:script menuBar
+:SearchRank 1
+
+:function traverseMenuBar
+:SearchRank 1
+
+:function activateMenu
+:SearchRank 1
+

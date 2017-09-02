@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>#action</TITLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<B><P><A NAME="action_command"></A>#action</P>
+<P>Syntax:</B> #action {pattern} {commands to be done} [{priority}] [group_name]</P>
+<P>This command describes the action to be taken by the JMC, when text mathing the <I>pattern</I> arrive from the MUD. The variable's %0-9 are substituted from the input string, and can be used in the command(s) side of the command.</P>
+<P>All actions are stored in a list. Any string arriving from the MUD is checked against the actions list to see if any of them match. If you have any important actions and want them to be checked first, simple set a greater priority for them. Zero is most important (highest) priority, 9 is the least important (lowest) priority.</P>
+<P>If the pattern string starts with a ^, only the beginning of the line will be searched. This is particularly useful so that triggers don't get activated by the wrong text. For example, if you have a trigger that makes you eat a piece of bread when the message "You are hungry." arrives, someone might trigger that by actually shouting that out - "Someone shouts 'You are hungry.'". This would result in the trigger being activated, since the text matches. If you add the '^' character to the start of the trigger, then the shouted command will not match, because it doesn't start with "You are hungry.".</P>
+<P>If the #action command is used with no arguments, all defined actions are listed.</P>
+<P>If #action is used with only one argument, all defined actions that match this argument will be displayed. The * wildcard character can be used here.</P>
+<I><P>Regular expressions: If first parameter of an #action command start by ‘/’ symbol and ends by ‘/’ symbol this string will be used as a <B>regular expression.</B> Regular expressions is a powerful method if description strings masks. If you are not familiar with it – read its format before. Every part of regular expression, limited by ‘(‘ ‘)’ symbols will be placed into %0-%9 variables while executing regular expression. Regular expression always creates with “global” flag. </I><A HREF="regexp_format.htm">Here is regular expressions format.</A></P>
+<P>&nbsp;</P>
+<P>By default action creates in “default” group.</P>
+<B><P>Examples:</P>
+</B><I><P>#action {You are hungry.} {eat bread} {2}</P>
+</I><P>When you are getting hungry, you will automatically try to eat some bread.</P>
+<I><P>#action {%0 arrives from the %1} {kill %0} {0} {pkill}</P>
+</I><P>When anyone arrives in the room, you will attack him. NOTE: if "a hairy ogre" should enter the room, "kill a hairy ogre" will be sent to the MUD. The %0 in this case substitutes for everything before "arrives from the". This action creates into group named <I>“pkill”.</P>
+<P>#action </P>
+</I><P>Show all defined actions:</P>
+<I><P>{The momentum of your kick}={sta} @ {5}</P>
+<P>{You try to bash}={sta} @ {5}</P>
+<P>{are hungry}={get $food $chest;eat $food} @ {5}</P>
+<P>{are thirsty}={drink water} @ {5}</P>
+<P>{crashes into you}={sta} @ {5}</P>
+<P>{disarms your weapon}={get axe} @ {5}</P>
+<P>#action *you*</P>
+</I><P>Show all defined actions containing "you":</P>
+<I><P>{The momentum of your kick}={sta} @ {5}</P>
+<P>{You try to bash}={sta} @ {5}</P>
+<P>{crashes into you}={sta} @ {5}</P>
+<P>{disarms your weapon}={get axe} @ {5}</P>
+</I><P>You can have JMC ignore the actions if you type '<A HREF="ignore.html">#ignore</A>'. Turn the ignoring off by typing '#ignore' again.</P>
+<P>You can see the command that JMC will execute when an action is triggered by using the <A HREF="echo.html">#echo</A> command. This feature can be disabled by typing '#echo' again.</P>
+<P>To remove an action use the <A HREF="unaction">#unaction</A> command.</P>
+<P>&nbsp;</P>
+<P>See also: <A HREF="group_descr.html">JMC commands groups</A> <A HREF="group.html">#group</A> <A HREF="unaction">#unaction</A></P>
+<P>&nbsp;</P>
+<P>&nbsp;</P></BODY>
+</HTML>

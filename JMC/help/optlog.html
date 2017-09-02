@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Log params page</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="Log params page">
+</OBJECT>
+
+<P><A NAME="log_params_page"></A><b>Log params page</b></P>
+
+<P><IMG SRC="images/log_page.gif" ALT="" BORDER=0></P>
+
+<P>This page allows the user to set up options regarding the logging of incoming text/user input.  This means you can save all the strings and text coming from the MUD, as well as your input, to a file.  You can turn logging on/off via the <A HREF="log.html">#log</A> command. This page allows the user to configure the default options for the logging.</P>
+
+<P>Probably the most important option is the default mode to be used when opening the log file.  If the default mode is Append, and you start logging to a file, the new text will simply be added to the end of the file.  If it doesnt exist, it is created.  If the default mode is Overwrite, the existing file will be cleared and the new information will overwrite the old file.  You can also set up the logging mode by using the second parameter of the <A HREF="log.html">#log</A> commnd.</P>
+
+<P>The two other options avaiable focus on saving extra (special) data to the log file.  The "Write ANSI commands" option tells the client to write the ANSI escape sequences to the file.  This effectively saves the color codes that are received.  The "RMA extension" option tells JMC to add special ESC commands before the text is written to the logfile.  This command set up a delay time before text arrives. <a href="rma.html">RMA</a> uses it to play back logs in real-time.</P>
+
+<P>See also: <A HREF="comopts.html">Common params</A> <A HREF="optsubs.html">Substitution page</A> <A HREF="optprof.html">Profile page</A> <A HREF="log.html">#log</A></P>
+
+</BODY>
+</HTML>

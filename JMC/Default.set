@@ -1,0 +1,17 @@
+#message action OFF
+#message variable OFF
+#message uses OFF
+#multiaction off
+#multihighlight off
+#presub on
+#echo off
+#ignore off
+#speedwalk on
+#togglesubs off
+#verbat off
+#colon leave
+#comment #
+#race format %0
+#use {common.scr}
+#group local default
+#ticksize 60

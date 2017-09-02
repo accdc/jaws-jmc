@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>#variable</TITLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<P><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"></P>
+<object TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"><param name="Keyword" value="#variable"><param name="Keyword" value="variables"></object>
+<B><P><A NAME="_variable"></A>#variable</P>
+<P>Syntax:</B> #variable {&lt;variable_name&gt;} {&lt;value&gt;} [local/global]</P>
+<P>&nbsp;&nbsp;&nbsp; This command creates a global variable and populates it with &lt;value&gt;. This variable stays valid between command processing and may be used to keep data between actions/aliases. The variable's name should start with a letter. To use the variable's value you have to type the '$' character followed by the variable name. Variables can be used as a part of any command or as a part of any string.</P>
+<P>&nbsp;&nbsp;&nbsp; There are predefined variables in JMC: <STRONG>DATE</STRONG> and <STRONG>TIME. </STRONG>You cant set those variables but you can use them into your scripts. <STRONG>DATE </STRONG>variable contains current date and <STRONG>TIME </STRONG>variable contains current time.</P>
+<P>By default variable creates as <B>local</B> and stores in your pofile’s <B>.set </B>file. If you set <B>global </B>flag variable will be stored into <B>globa.set</B> file and will be availible for all profiles.</P>
+<B><P>Example:</P>
+</B><I><P>#variable food {bread} {global}</P>
+</I><P>Created variable named '<I>food</I>' which contains the string "bread". Will be stored in globa.set file and availible for all profiles.</P>
+<I><P>#variable container chest</P>
+</I><P>Created variable named '<I>container</I>' which contains the string "chest". Will be availible for current profile only.</P>
+<I><P>#action {You are hungry.} {get $food $container;eat $food} </P>
+</I><P>With that action defined, you will get a bread from the chest, and eat it, if the "You are hungry." message ever arrives on your screen. If you have alternate foodstuffs (if the city you are now in doesn't sell bread for example) you simply change the name of the variable to the food you are now carrying.</P>
+<EM><P>#log $DATE.log </P>
+</EM><P>Opens log file with name like "01-02-2001.log"</P>
+<P>You can use variables in <A HREF="math.html">#math</A><B> </B>and <A HREF="if.html">#if</A> commands:</P>
+<B><P>Example:</P>
+</B><I><P>#variable hp 100</P>
+</I><P><A HREF="action.html"><I>#action</I></A><I> {HP:%1} {#variable hp %1 ;</I><A HREF="if.html"><I> #if</I></A><I> {$hp&lt;100} {</I><A HREF="jmc70rp.htm"><I>#showme</I></A><I> TIME TO FLEE!}}</P>
+</I><P>See also:<A HREF="unvar.html"> #unvariable</A>, <A HREF="math.html">#math</A>,<A HREF="if.html"> #if</A> <A HREF="group_descr.html">JMC commands groups</A> <A HREF="group.html">#group</A></P></BODY>
+</HTML>

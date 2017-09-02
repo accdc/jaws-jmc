@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>#highlight</TITLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<P><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"><OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"><PARAM NAME="Keyword" VALUE="#highlight"></OBJECT></P>
+<B><P><A NAME="_highlight"></A>#highlight</P>
+<P>Syntax:</B> #highlight {colour} {&lt;text to highlight&gt;} [group_name]</P>
+<P>Description: Every part of string, coming from the MUD and matches <I>&lt;text to highlight&gt;</I> will be</P>
+<P>highlighted by the <I>&lt;colour&gt;</I>.</P>
+<B><P>ATTENTION ! In the JMC 3.* highlights don’t highlight the whole string. Its highlights only matched potion of it. For example, #highlight {red} {massacre} will highlight only word “massacre” in the “Dragon massacre you” by the red color. To highlight whole string&lt; use %0-%9 symbols as a wildcards: #highlight {red} {%0 massacre %1}.</P>
+</B><P>The value of the <I>&lt;colour</I>&gt; can be one of the following:<BR>
+- reverse, bold, blink, faint, italic, or a number from 1 to 8<BR>
+- the numbers represent colours 1 through 8 in the palette.</P>
+<P>You can use the colour names and the combination of names within to declaration. For instance, you can specify <I>{red, bold}</I>. </P>
+<P>Valid Colour names are as follows:</P>
+<P>red, blue, cyan, green, yellow, magenta, white, grey, black, brown, charcoal, light red, light blue, light cyan, light magenta, light green, b red, b blue, b cyan, b green, b yellow, b magenta, b white, b grey, b black, b brown, b charcoal, b light red, b light blue, b light cyan, b light magenta, b light green, bold, faint, blink, italic, reverse.</P>
+<B><P>Example:</P>
+</B><I><P>#highlight {red} {hits you very hard} {common}</P>
+</I><P>When someone hits you very hard the text "hits you very hard" will be highlighted in red. Creates in group named <I>“common”</P>
+</I><P>If you want to highlight the whole string, and not just the pattern text, use the %0-%9 variables to substitute changeable parts of the pattern string:</P>
+<I><P>#highlight {yellow} {%0 gives you %1 coins%2}</P>
+</I><P>Now, when someone gives coins to you, you will see it highlighted yellow.</P>
+<P>See also: <A HREF="unhighlight.html">#unhighlight</A> <A HREF="substitute.htm">#substitute</A><B> </B><A HREF="ansicol.htm">ANSI colors dialog</A> <A HREF="group_descr.html">JMC commands groups</A> <A HREF="group.html">#group</A></P></BODY>
+</HTML>

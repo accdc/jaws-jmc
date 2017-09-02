@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>#log</TITLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<P><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"><OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e"><PARAM NAME="Keyword" VALUE="#log"></OBJECT></P>
+<B><P><A NAME="_log"></A>#log</P>
+<P>Syntax:</B> #log {filename} [append/overwrite/html]</P>
+<P>The log command is used to start recording all text coming from MUD (excluding special ANSI symbols) and user input, to the file called <I>filename</I>. If JMC is already writing output to a file, the current log file will be closed and a new log opened. When you use this command without parameters the current log file (if opened) will be closed. If the second parameter doesn't exist JMC will open the log file in "default log mode". This is configurable via the "Options/Log settings" dialog. If the default mode is the overwrite mode then JMC will overwrite the existing log file. If the mode is "append mode" then JMC appends the log to the existing file. If log mode is HTML your log will be written in the HTML format. <B>ATTENTION ! Html log files cant be appended. Overwrite only.</P>
+</B><P>You can choose log mode by using the second parameter. There are two valid values: "append" and "overwrite".</P>
+<B><P>Example:</P>
+</B><I><P>#log castle.log </P>
+</I><P>Start logging to the file castle.log</P>
+<I><P>#log town.log overwrite</P>
+</I><P>Closes file "castle.log" and starts logging to file "town.log". If "town.log" exists, it will be overwritten.</P>
+<I><P>#log </P>
+</I><P>Stop logging.</P>
+<P>See also: <A HREF="read.html">#read</A> <A HREF="write.html">#write</A> <A HREF="textin.html">#textin</A> <A HREF="optlog.html">Log params page</A></P></BODY>
+</HTML>

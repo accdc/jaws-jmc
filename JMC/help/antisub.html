@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>#antisubstitute</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="#antisubstitute">
+</OBJECT>
+
+<P><A NAME="_antisubstitute"></A><b>#antisubstitute</b></P>
+
+<P><b>Syntax:</b> #antisubstitute {<i>pattern</i>}</P>
+
+<P>Description:  This command will prevent the lines that contain <i>pattern</i>, from being substituted or gagged.</P>
+
+<P><b>Example:</b></P>
+
+<P><A HREF="gag.html"><I>#gag</I></A><I> {%0 arrived from the %1}</I></P>
+
+<P>Now, any message containing that text (note the variable substitutions) will be gagged (hidden) from the user.</p>
+
+<P><A HREF="#_antisubstitute"><I>#antisubstitute</I></A><I> {Warrior has arrived%1} </I></P>
+
+<P>Now, if "Warrior" enters the room, it will be shown on the screen.  However, only "Warrior" will be shown.  Any other character entering the room will be gagged.</P>
+
+<P>See also: <A HREF="substitute.html">#substitute,</A> <A HREF="gag.html">#gag</A></P>
+
+</BODY>
+</HTML>

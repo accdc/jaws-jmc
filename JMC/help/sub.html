@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>#substitute</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="#substitute">
+</OBJECT>
+
+<P><A NAME="_substitute"></A><b>#substitute</b></P>
+
+<P><b>Syntax:</b> #substitute {pattern} {text}</P>
+
+<P>This command changes all incoming strings containing the pattern <i>pattern</i>. The pattern will be replaced by the second argument of the command.  If you use wildcards in the pattern the whole string will be replaced.  Note that the variables (%0-%9) can also be used in the replacement text.</P>
+
+<P>Remember, JMC does all substitutions before actions.  This makes it possible to trigger substituted text.</P>
+
+<P><b>Example:</b></P>
+
+<P><I>#substitute {hits you} {HITS YOU}</I></P>
+
+<P>Now, when you receive the string "Lesath hits you hard", it will be shown as "Lesath HITS YOU hard"</P>
+
+<P><I>#substitute {%0 hits you} {EVERYONE HITS YOU}</I></P>
+
+<P>Now you would see:</P>
+
+<P><I>"Undead hits you hard" as "EVERYONE HITS YOU hard"</I></P>
+
+<P><I>"Dragon hits you hard" as "EVERYONE HITS YOU hard"</I></P>
+
+<P><I>See also <A HREF="antisub.html">#antisubstitute</A>:,<A HREF="unsubs.html"> #unsubs</A>, <A HREF="presub.html">#presub</A></I></P>
+
+</BODY>
+</HTML>

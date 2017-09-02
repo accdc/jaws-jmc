@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>#pathdir</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+
+<OBJECT TYPE="application/x-oleobject" CLASSID="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<PARAM NAME="Keyword" VALUE="#pathdir">
+	<PARAM NAME="Keyword" VALUE="path of MUD's directions">
+</OBJECT>
+
+<P><A NAME="_pathdir"></A><b>#pathdir</b></P>
+
+<P><b>Syntax:</b> #pathdir {direction string} {return string}</P>
+
+<P>When a user types in a command, it is checked to see if it is a direction command.  A direction command is basically a command that moves you to another room (north and south are obvious examples).  However, if pathmode is ON, then JMC will attempt to store the direction you just moved (see <a href="path.html">#path</a> for more information on pathmode).  By default, JMC defines six direction strings: "n s e w d u".  If your MUD uses nonstandard direction commands (like Northwest, SouthEast etc) you should add these strings to the pathlist with the #pathdir command.  The direction is the first argument. The second argument of this command is the "opposite" direction. JMC uses this "opposite" information in the #return command. Usually, MUD’s use 6 directions (n s e w d u) and you don’t need to worry about adding new pathdirs.</P>
+
+<P>Example:</P>
+
+<P><I>#pathdir {Northwest} {SouthEast}  </I></P>
+
+<P>Any time you type Northwest, this word will be added to current path (if pathmode is ON).</P>
+
+<P>See also: <A HREF="mark.html">#mark</A>, <A HREF="unpath.html">#unpath</A>, <A HREF="path.html">#path</A>, <A HREF="savepath.html">#savepath</A>, <A HREF="return.html">#return</A>, <A HREF="map.html">#map</A></P>
+</BODY>
+</HTML>
