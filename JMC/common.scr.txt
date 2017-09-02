@@ -14,7 +14,7 @@ s = s.replace(/\x1b\[[^m]+m/g, "")
 if (jmc.IsConnected && log == 1) {
 logStr += "\n" + s
 }
-s = oJax.StringReplaceAll(s, '"', "'")
+s = oJax.StringReplaceAll(s, '"', '&quat;')
 fsAPI.RunFunction('parseIncomingString("' + s + '")')
 }
 
