@@ -2,7 +2,7 @@
 JAWS Scripts for JMC - Version 5 (Last Modified September 1, 2017)
 For use with JMC the Java MUD Client version 3.6.1
 GitHub download: https://github.com/accdc/jaws-jmc
-Authored by Bryan Garaventa, WhatSock.com
+Developed by Bryan Garaventa, WhatSock.com
 */
 
 include "hjConst.jsh"

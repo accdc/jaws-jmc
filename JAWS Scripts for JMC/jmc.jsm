@@ -85,13 +85,11 @@ To automatically filter out specific characters when storing strings into F# slo
 Reviewing Recent Messages
 -----
 
-To activate the Reverse Message Buffer, press Alt+Control+Shift+UpArrow.
-To activate the Forward Message Buffer, press Alt+Control+Shift+DownArrow.
 To change the refresh settings for each buffer, press Alt+Control+Shift+Enter.
 To modify the Forward Message Buffer length, press: Alt+Control+F
 To modify the Reverse Message Buffer length, press: Alt+Control+R
-To listen to the Reverse Message Buffer, press Alt+UpArrow.
-To listen to the Forward Message Buffer, press Alt+DownArrow.
+To listen to the Reverse Message Buffer, press Alt+Control+UpArrow.
+To listen to the Forward Message Buffer, press Alt+Control+DownArrow.
 To make a virtual copy of the Reverse Message Buffer, press Alt+Shift+UpArrow.
 To make a virtual copy of the Forward Message Buffer, press Alt+Shift+DownArrow.
 
