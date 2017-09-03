@@ -9,9 +9,10 @@ include "hjConst.jsh"
 include "hjGlobal.jsh"
 include "common.jsm"
 include "jmc.jsm"
+use "jFetchUpdater.jsb"
 
 const
-csVer = "5",
+csVer = "5.1",
 slIni = "wndmg.ini",
 kSec = "kSlots",
 totalSlots = 20
@@ -318,6 +319,27 @@ let interToggle = 1
 endIf
 
 if (!gmft) then
+var string rP, string rV
+let rP = "https://gutterstar.bizland.com/whatsock/jaws-scripts/jmc/"
+let rV = getRemoteFile (rP + "version.txt", "", "GET", "", false, false)
+if StringContains (rV, "CurrentJMC-Version=") then
+if not StringContains (rV, "CurrentJMC-Version=\"" + csVer + "\"") then
+var int u
+let u = ExMessageBox ("There is a newer release of the JAWS Scripts for JMC currently available, would you like to load them now?", "Update Available", mb_yesno)
+if u == 6 then
+Say ("Please wait.", 0, false)
+getRemoteFile (rP + "jmc.JSS", GetJAWSSettingsDirectory () + "\\jmc.JSS", "GET", "", true, true)
+getRemoteFile (rP + "jmc.jsm", GetJAWSSettingsDirectory () + "\\jmc.jsm", "GET", "", true, true)
+getRemoteFile (rP + "jmc.jsd", GetJAWSSettingsDirectory () + "\\jmc.jsd", "GET", "", true, true)
+getRemoteFile (rP + "jmc.jsb", GetJAWSSettingsDirectory () + "\\jmc.jsb", "GET", "", true, true)
+getRemoteFile (rP + "jmc.jkm", GetJAWSSettingsDirectory () + "\\jmc.jkm", "GET", "", true, true)
+PerformScript RefreshScripts()
+let interToggle = 0
+AutoStartEvent ()
+Return
+endIf
+endIf
+endIf
 let gmft = 1
 let prevMainE = StringToHandle ("0")
 SayFormattedMessage (0, autoStrt, cmsgSilent) let navMode = 1

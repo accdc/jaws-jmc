@@ -1,0 +1,31 @@
+:function getRemoteFile
+:Returns string
+:Param string/url No Description
+:Param string/FilePath No Description
+:Param string/method No Description
+:Param string/body No Description
+:Param int/isBinary No Description
+:Param int/shouldOverwrite No Description
+
+:function fsoCreateInstance
+:Returns object
+
+:function ajaxCreateObj
+:Returns object
+
+:function fsoCreateFolder
+:Returns object
+:Param object/FileObject No Description
+:Param string/FolderPath No Description
+
+:function fsoCreateTextFile
+:Returns object
+:Param object/FileObject No Description
+:Param string/FileName No Description
+:Param int/isUniCode No Description
+
+:function fsoWriteFile
+:Returns object
+:Param object/OpenObject No Description
+:Param string/SourceCode No Description
+
