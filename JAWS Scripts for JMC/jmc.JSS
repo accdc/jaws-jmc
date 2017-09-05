@@ -1,5 +1,5 @@
 /*
-JAWS Scripts for JMC - Version 5.1 (Last Modified September 2, 2017)
+JAWS Scripts for JMC - Version 5.1.1 (Last Modified September 5, 2017)
 For use with JMC the Java MUD Client version 3.6.1
 GitHub download: https://github.com/accdc/jaws-jmc
 Developed by Bryan Garaventa, WhatSock.com
@@ -12,7 +12,7 @@ include "jmc.jsm"
 use "jFetchUpdater.jsb"
 
 const
-csVer = "5.1",
+csVer = "5.1.1",
 slIni = "wndmg.ini",
 kSec = "kSlots",
 totalSlots = 20
@@ -274,9 +274,6 @@ int GISuppressStartMenu,
 int iWin95
 
 messages
-@autoStrt
-To hear the help topic for jmc, press Insert+H.
-@@
 @notesEr1
 The jmc notes file cannot be found. 
 
@@ -325,24 +322,28 @@ let rV = getRemoteFile (rP + "version.txt", "", "GET", "", false, false)
 if StringContains (rV, "CurrentJMC-Version=") then
 if not StringContains (rV, "CurrentJMC-Version=\"" + csVer + "\"") then
 var int u
-let u = ExMessageBox ("There is a newer release of the JAWS Scripts for JMC currently available, would you like to load them now?", "Update Available", mb_yesno)
+let u = ExMessageBox ("There is a newer release of the JAWS Scripts for JMC currently available, would you like to load them now? Updating is recommended to apply bug fixes and feature enhancements. All of your current settings will be saved automatically.", "JAWS Scripts Update Available", mb_yesno)
 if u == 6 then
-Say ("Please wait.", 0, false)
+Say ("Updating, please wait.", 0, false)
+getRemoteFile (rP + "jFetchUpdater.JSS", GetJAWSSettingsDirectory () + "\\jFetchUpdater.JSS", "GET", "", true, true)
+getRemoteFile (rP + "jFetchUpdater.JSD", GetJAWSSettingsDirectory () + "\\jFetchUpdater.JSD", "GET", "", true, true)
+getRemoteFile (rP + "jFetchUpdater.jsb", GetJAWSSettingsDirectory () + "\\jFetchUpdater.jsb", "GET", "", true, true)
 getRemoteFile (rP + "jmc.JSS", GetJAWSSettingsDirectory () + "\\jmc.JSS", "GET", "", true, true)
 getRemoteFile (rP + "jmc.jsm", GetJAWSSettingsDirectory () + "\\jmc.jsm", "GET", "", true, true)
 getRemoteFile (rP + "jmc.jsd", GetJAWSSettingsDirectory () + "\\jmc.jsd", "GET", "", true, true)
 getRemoteFile (rP + "jmc.jsb", GetJAWSSettingsDirectory () + "\\jmc.jsb", "GET", "", true, true)
 getRemoteFile (rP + "jmc.jkm", GetJAWSSettingsDirectory () + "\\jmc.jkm", "GET", "", true, true)
-PerformScript RefreshScripts()
 let interToggle = 0
-AutoStartEvent ()
+Say ("Update complete.", 0, false)
+Run (rP + "jmcChangeLog.txt")
 Return
 endIf
 endIf
 endIf
 let gmft = 1
 let prevMainE = StringToHandle ("0")
-SayFormattedMessage (0, autoStrt, cmsgSilent) let navMode = 1
+Say ("To hear the help topic for jmc, press Insert+H.", 0, false)
+Say ("Currently running JAWS Scripts for JMC version " + csVer, 0, false)
 endIf
 
 var int rslt
@@ -3222,6 +3223,12 @@ EndScript
 Script mEscK ()
 if UserBufferIsActive () then
 UserBufferDeactivate ()
+Say ("Edit", 0, false)
+
+elIf mBar > 0 then
+let mBar = 0
+Say ("Leaving menus, edit", 0, false)
+
 else
 
 if isMainWndw () &&
@@ -5816,6 +5823,7 @@ endIf
 
 IniWriteString (hostLst, rh, "EmptyString", ini)
 IniRemoveKey (hostLst, sg, ini)
+IniRemoveKey (hostLst, sg + "Prt", ini)
 Say (sg, 0)
 Say ("has been removed from the host list", 0)
 endIf
