@@ -336,7 +336,7 @@ getRemoteFile (rP + "jmc.jkm", GetJAWSSettingsDirectory () + "\\jmc.jkm", "GET",
 getRemoteFile (rP + "jmcChangeLog.txt", GetJAWSSettingsDirectory () + "\\jmcChangeLog.txt", "GET", "", true, true)
 let interToggle = 0
 Say ("Update complete.", 0, false)
-Run (GetJAWSSettingsDirectory () + "\\jmcChangeLog.txt")
+Run ("\"" + GetJAWSSettingsDirectory () + "\\jmcChangeLog.txt\"")
 Return
 endIf
 endIf
