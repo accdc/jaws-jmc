@@ -1,5 +1,5 @@
 /*
-JAWS Scripts for JMC - Version 5.1.1 (Last Modified September 5, 2017)
+JAWS Scripts for JMC - Version 5.1.2 (Last Modified September 6, 2017)
 For use with JMC the Java MUD Client version 3.6.1
 GitHub download: https://github.com/accdc/jaws-jmc
 Developed by Bryan Garaventa, WhatSock.com
@@ -12,7 +12,7 @@ include "jmc.jsm"
 use "jFetchUpdater.jsb"
 
 const
-csVer = "5.1.1",
+csVer = "5.1.2",
 slIni = "wndmg.ini",
 kSec = "kSlots",
 totalSlots = 20
@@ -333,9 +333,10 @@ getRemoteFile (rP + "jmc.jsm", GetJAWSSettingsDirectory () + "\\jmc.jsm", "GET",
 getRemoteFile (rP + "jmc.jsd", GetJAWSSettingsDirectory () + "\\jmc.jsd", "GET", "", true, true)
 getRemoteFile (rP + "jmc.jsb", GetJAWSSettingsDirectory () + "\\jmc.jsb", "GET", "", true, true)
 getRemoteFile (rP + "jmc.jkm", GetJAWSSettingsDirectory () + "\\jmc.jkm", "GET", "", true, true)
+getRemoteFile (rP + "jmcChangeLog.txt", GetJAWSSettingsDirectory () + "\\jmcChangeLog.txt", "GET", "", true, true)
 let interToggle = 0
 Say ("Update complete.", 0, false)
-Run (rP + "jmcChangeLog.txt")
+Run (GetJAWSSettingsDirectory () + "\\jmcChangeLog.txt")
 Return
 endIf
 endIf
@@ -446,7 +447,10 @@ endIf
 EndFunction
 
 Function parseIncomingString (string bfr)
-let bfr = StringReplaceSubstrings (bfr, "&quat;", "\"")
+let bfr = StringTrimLeadingBlanks (StringTrimTrailingBlanks (StringReplaceSubstrings (bfr, "&quat;", "\"")))
+if bfr == "0" then
+Return
+endIf
 if passSp ||
 StringContains (bfr, "Last move forgotten.") then
 Return
