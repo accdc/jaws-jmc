@@ -6,7 +6,7 @@
 #presub on
 #echo off
 #ignore off
-#speedwalk on
+#speedwalk off
 #togglesubs off
 #verbat off
 #colon leave
