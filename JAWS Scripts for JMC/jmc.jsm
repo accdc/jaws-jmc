@@ -206,6 +206,8 @@ West: Windows+LeftArrow
 North-West: Windows+Home
 Up: Control+Windows+UpArrow
 Down: Control+Windows+DownArrow
+Custom NumPad5: Windows+NumPad5
+
 To change the string assignment for any compass direction...
 Change direction: Hotkey
 North: Alt+Control+1
@@ -218,6 +220,7 @@ West: Alt+Control+7
 North-West: Alt+Control+8
 Up: Alt+Control+9
 Down: Alt+Control+0
+Custom NumPad5: Alt+Control+`
 Reset original compass directions: Shift+Alt+=
 
 Hyper Nav Mode
@@ -237,6 +240,7 @@ West: Leftarrow
 North-west: Home
 Up: Shift
 Down: Control
+Custom NumPad5: NumPad5
 To quickly disable Hyper Nav Mode, press the Insert key.
 
 Auto Mapping and Quick Escape

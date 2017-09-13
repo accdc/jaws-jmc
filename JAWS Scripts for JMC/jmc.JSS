@@ -1,5 +1,5 @@
 /*
-JAWS Scripts for JMC - Version 5.1.2 (Last Modified September 6, 2017)
+JAWS Scripts for JMC - Version 5.1.3 (Last Modified September 11, 2017)
 For use with JMC the Java MUD Client version 3.6.1
 GitHub download: https://github.com/accdc/jaws-jmc
 Developed by Bryan Garaventa, WhatSock.com
@@ -12,7 +12,7 @@ include "jmc.jsm"
 use "jFetchUpdater.jsb"
 
 const
-csVer = "5.1.2",
+csVer = "5.1.3",
 slIni = "wndmg.ini",
 kSec = "kSlots",
 totalSlots = 20
@@ -196,6 +196,7 @@ string navW,
 string navNW,
 string navU,
 string navD,
+string nav5,
 int navMode,
 int msgBfrRefresh,
 int iTB,
@@ -2403,6 +2404,7 @@ let navW = IniReadString (navVs, "navW", "w", ini)
 let navNW = IniReadString (navVs, "navNW", " ", ini)
 let navU = IniReadString (navVs, "navU", "u", ini)
 let navD = IniReadString (navVs, "navD", "d", ini)
+let nav5 = IniReadString (navVs, "nav5", "", ini)
 
 let macVs = getMacSection ("")
 let mEscK = IniReadString (macVs, "mEscK", "", ini)
@@ -2652,7 +2654,6 @@ TypeCurrentScriptKey ()
 Return
 endIf
 navType (4) Return
-else
 endIf
 EndScript
 
@@ -2666,7 +2667,6 @@ Return
 endIf
 navType (5)
 Return
-else
 endIf
 EndScript
 
@@ -2680,7 +2680,6 @@ Return
 endIf
 navType (6)
 Return
-else
 endIf
 EndScript
 
@@ -2694,7 +2693,6 @@ Return
 endIf
 navType (7)
 Return
-else
 endIf
 EndScript
 
@@ -2712,6 +2710,26 @@ endIf
 EndScript
 
 Script np5 ()
+var string pressed, int isWin
+let pressed = StringLower (GetCurrentScriptKeyName ())
+if StringContains (pressed, "windows") then
+let isWin = true
+else
+let isWin = false
+endIf
+if isMainWndw () &&
+((navMode && isWin) || quickNav) &&
+IsPCCursor () &&
+not StringIsBlank (nav5) then
+clearLine ()
+TypeString (nav5)
+EnterKey ()
+Return
+endIf
+PerformScript SayCharacter()
+EndScript
+
+Script navUp ()
 if isMainWndw () &&
 navMode then
 if StringIsBlank (navU) then
@@ -2721,11 +2739,10 @@ Return
 endIf
 navType (9)
 Return
-else
 endIf
 EndScript
 
-Script np5ctrl ()
+Script navDown ()
 if isMainWndw () &&
 navMode then
 if StringIsBlank (navD) then
@@ -2735,7 +2752,6 @@ Return
 endIf
 navType (10)
 Return
-else
 endIf
 EndScript
 
@@ -3132,6 +3148,32 @@ endIf
 IniWriteString (navVs, "navD", navSub, ini)
 getNavVs ()
 pathDir (navSub, navU)
+Say (navSub, 0)
+Say ("has been substituted for the quick navigation key: ", 0)
+Say (ndr, 0)
+endIf
+EndScript
+
+Script changeNP5 ()
+let ndr = "NumPad5"
+var
+string navSub,
+string navDir
+let navDir = ("Substitute for " + ndr)
+if InputBox (changeNav, navDir, navSub) then
+if StringIsBlank (navSub) then
+IniWriteString (navVs, "nav5", navSub, ini)
+getNavVs ()
+Say ("the value for ", 0)
+Say (ndr, 0)
+Say ("has been cleared", 0)
+Return
+elIf (StringLength (navSub) > 70) then
+Say ("String must not exceed 70 characters in length", 0)
+Return
+endIf
+IniWriteString (navVs, "nav5", navSub, ini)
+getNavVs ()
 Say (navSub, 0)
 Say ("has been substituted for the quick navigation key: ", 0)
 Say (ndr, 0)
@@ -5284,14 +5326,7 @@ TypeCurrentScriptKey ()
 Return
 endIf
 clearLine ()
-if StringLeft (IntToString (GetJFWVersion ()), 1) == "8" &&
-StringContains (wNP5, "$CP$") then
-var string s
-let s = StringReplaceSubstrings (wNP5, "$CP$", stringStripAllBlanks (GetClipboardText ()))
-TypeString (s)
-else
 TypeString (wNP5)
-endIf
 EnterKey ()
 refreshBuffers ()
 EndScript
@@ -6298,7 +6333,7 @@ if isCtrl then
 PerformScript swNPSlash()
 Return
 endIf
-PerformScript np5()
+PerformScript navUp()
 else
 if isCtrl then
 PerformScript ClearEditField()
@@ -6315,7 +6350,7 @@ if StringContains (pressed, "rightcontrol+leftcontrol") then
 PerformScript swNPStar()
 Return
 endIf
-PerformScript np5ctrl()
+PerformScript navDown()
 else
 PerformScript ctrlKey()
 endIf
@@ -6391,6 +6426,9 @@ endIf
 EndScript
 
 Script ToggleQuickNav ()
+if not navMode then
+PerformScript ToggleNavMode()
+endIf
 let quickNav = true
 Say ("quick nav on, press insert to disable", 0)
 EndScript

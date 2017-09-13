@@ -377,7 +377,10 @@
 :SearchRank 1
 :Synopsis moves the character up using quick navigation mode
 
-:script np5ctrl
+:script navUp
+:SearchRank 1
+
+:script navDown
 :SearchRank 1
 :Synopsis moves the character down using quick navigation mode
 
@@ -442,6 +445,9 @@
 :script changeD
 :SearchRank 1
 :Synopsis Changes the quick navigation string for down
+
+:script changeNP5
+:SearchRank 1
 
 :script macEscK
 :SearchRank 1
