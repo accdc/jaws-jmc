@@ -240,8 +240,10 @@ Customizable Hotkeys
 Quick Navigation Mode
 -----
 
-* Toggle quick navigation mode on/off: Control+Insert+NumPad5, or Insert+K, or Control+K
-* Navigational hotkeys...
+Toggle quick navigation mode on/off: Control+Insert+NumPad5, or Insert+K, or Control+K
+
+Navigational hotkeys...
+
 * Go direction: Hotkey
 * North: Windows+UpArrow
 * North-East: Windows+PageUp
@@ -253,8 +255,12 @@ Quick Navigation Mode
 * North-West: Windows+Home
 * Up: Control+Windows+UpArrow
 * Down: Control+Windows+DownArrow
-* To change the string assignment for any compass direction...
-* Change direction: Hotkey
+* Custom NumPad5: Windows+NumPad5
+
+To change the string assignment for any compass direction...
+
+Change direction: Hotkey
+
 * North: Alt+Control+1
 * North-East: Alt+Control+2
 * East: Alt+Control+3
@@ -265,6 +271,7 @@ Quick Navigation Mode
 * North-West: Alt+Control+8
 * Up: Alt+Control+9
 * Down: Alt+Control+0
+* Custom NumPad5: Alt+Control+`
 * Reset original compass directions: Shift+Alt+=
 
 Hyper Nav Mode
@@ -283,6 +290,7 @@ Hyper Nav Mode
 * North-west: Home
 * Up: Shift
 * Down: Control
+* Custom NumPad5: NumPad5
 * To quickly disable Hyper Nav Mode, press the Insert key.
 
 Auto Mapping and Quick Escape
