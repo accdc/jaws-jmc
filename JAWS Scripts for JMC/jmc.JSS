@@ -1,5 +1,5 @@
 /*
-JAWS Scripts for JMC - Version 5.1.3 (Last Modified September 11, 2017)
+JAWS Scripts for JMC - Version 5.1.4 (Last Modified September 15, 2017)
 For use with JMC the Java MUD Client version 3.6.1
 GitHub download: https://github.com/accdc/jaws-jmc
 Developed by Bryan Garaventa, WhatSock.com
@@ -12,7 +12,7 @@ include "jmc.jsm"
 use "jFetchUpdater.jsb"
 
 const
-csVer = "5.1.3",
+csVer = "5.1.4",
 slIni = "wndmg.ini",
 kSec = "kSlots",
 totalSlots = 20
@@ -311,11 +311,7 @@ int isMessageWin,
 string strTmp
 
 Function AutoStartEvent ()
-if (!interToggle) then
-setGlobalValues ()
-let interToggle = 1
-endIf
-
+if StringLower (GetScriptFileName (true)) == "jmc.jsb" then
 if (!gmft) then
 var string rP, string rV
 let rP = "https://gutterstar.bizland.com/whatsock/jaws-scripts/jmc/"
@@ -342,20 +338,29 @@ Return
 endIf
 endIf
 endIf
-let gmft = 1
 let prevMainE = StringToHandle ("0")
 Say ("To hear the help topic for jmc, press Insert+H.", 0, false)
 Say ("Currently running JAWS Scripts for JMC version " + csVer, 0, false)
+let gmft = 1
 endIf
 
+if (!interToggle) then
+setGlobalValues ()
+let interToggle = 1
+endIf
 var int rslt
 SendMessage (GetAppMainWindow (GetFocus ()), 274, 61488, Rslt)
+else
+AutoStartEvent ()
+endIf
 EndFunction
 
 Function AutoFinishEvent ()
+if StringLower (GetScriptFileName (true)) == "jmc.jsb" then
 let interToggle = 0
-;var object o
-;let jmc = o
+else
+AutoFinishEvent ()
+endIf
 EndFunction
 
 Function setGlobalValues ()
@@ -385,9 +390,11 @@ getNavVs ()
 EndFunction
 
 Void Function FocusChangedEvent (handle FocusWindow, handle PrevWindow)
+if StringLower (GetScriptFileName (true)) == "jmc.jsb" then
 let g_FocusWindow = FocusWindow
 if focusChangedValues (g_FocusWindow) then
 Return
+endIf
 endIf
 FocusChangedEvent (FocusWindow, PrevWindow)
 EndFunction
@@ -1368,6 +1375,7 @@ endIf
 EndScript
 
 Void Function keyPressedEvent (int nKey, string strKeyName, int nIsBrailleKey, int nIsScriptKey)
+if StringLower (GetScriptFileName (true)) == "jmc.jsb" then
 let WindowClosed = false
 let ClipboardTextChanged = false
 
@@ -1378,26 +1386,22 @@ If UserBufferIsActive () then
 	nKey == KEY_ALT_TAB then
 UserBufferDeactivate ()
 endIf
-If NKey == KEY_CONTEXT then
-;			TypeKey (cKs23)
 endIf
-endIf
-
 if (GetActiveCursor () != activeCur) ||
 (activeVir != IsVirtualPCCursor ()) then
 let activeCur = GetActiveCursor ()
 let activeVir = IsVirtualPCCursor ()
 focusChangedValues (g_FocusWindow)
 endIf
-
-;let stp = 0
-
 if (isMessageWin &&
 (MenusActive () ||
 tInterruptM)) ||
 (!isMessageWin &&
 tInterrupt) then
 StopSpeech ()
+endIf
+else
+keyPressedEvent (nKey, strKeyName, nIsBrailleKey, nIsScriptKey)
 endIf
 EndFunction
 
@@ -2720,10 +2724,12 @@ endIf
 if isMainWndw () &&
 ((navMode && isWin) || quickNav) &&
 IsPCCursor () &&
+not IsVirtualPCCursor () &&
 not StringIsBlank (nav5) then
 clearLine ()
 TypeString (nav5)
 EnterKey ()
+refreshBuffers ()
 Return
 endIf
 PerformScript SayCharacter()
@@ -6236,7 +6242,7 @@ if mBar > 0 then
 activateMenu ()
 Return
 endIf
-if quickNav && IsPCCursor () then
+if quickNav && IsPCCursor () && not IsVirtualPCCursor () then
 if isCtrl then
 PerformScript swUp()
 Return
@@ -6257,7 +6263,7 @@ if mBar > 0 then
 activateMenu ()
 Return
 endIf
-if quickNav && IsPCCursor () then
+if quickNav && IsPCCursor () && not IsVirtualPCCursor () then
 if isCtrl then
 PerformScript swDown()
 Return
@@ -6283,7 +6289,7 @@ endIf
 traverseMenuBar ()
 Return
 endIf
-if quickNav && IsPCCursor () then
+if quickNav && IsPCCursor () && not IsVirtualPCCursor () then
 if isCtrl then
 PerformScript swLeft()
 Return
@@ -6310,7 +6316,7 @@ endIf
 traverseMenuBar ()
 Return
 endIf
-if quickNav && IsPCCursor () then
+if quickNav && IsPCCursor () && not IsVirtualPCCursor () then
 if isCtrl then
 PerformScript swRight()
 Return
@@ -6328,7 +6334,7 @@ Return
 endIf
 
 if StringContains (pressed, "shift") then
-if quickNav && IsPCCursor () then
+if quickNav && IsPCCursor () && not IsVirtualPCCursor () then
 if isCtrl then
 PerformScript swNPSlash()
 Return
@@ -6345,7 +6351,7 @@ Return
 endIf
 
 if StringContains (pressed, "control") then
-if quickNav && IsPCCursor () then
+if quickNav && IsPCCursor () && not IsVirtualPCCursor () then
 if StringContains (pressed, "rightcontrol+leftcontrol") then
 PerformScript swNPStar()
 Return
@@ -6358,7 +6364,7 @@ Return
 endIf
 
 if StringContains (pressed, "pageup") then
-if quickNav && IsPCCursor () then
+if quickNav && IsPCCursor () && not IsVirtualPCCursor () then
 if isCtrl then
 PerformScript swPUp()
 Return
@@ -6374,7 +6380,7 @@ Return
 endIf
 
 if StringContains (pressed, "pagedown") then
-if quickNav && IsPCCursor () then
+if quickNav && IsPCCursor () && not IsVirtualPCCursor () then
 if isCtrl then
 PerformScript swPDown()
 Return
@@ -6390,7 +6396,7 @@ Return
 endIf
 
 if StringContains (pressed, "end") then
-if quickNav && IsPCCursor () then
+if quickNav && IsPCCursor () && not IsVirtualPCCursor () then
 if isCtrl then
 PerformScript swEnd()
 Return
@@ -6407,7 +6413,7 @@ Return
 endIf
 
 if StringContains (pressed, "home") then
-if quickNav && IsPCCursor () then
+if quickNav && IsPCCursor () && not IsVirtualPCCursor () then
 if isCtrl then
 PerformScript swHome()
 Return

@@ -20,7 +20,7 @@ fsAPI.RunFunction('parseIncomingString("' + s + '")')
 
 function onInput () {
 if (!jmc.IsConnected) {
-fsAPI.RunFunction('SayString("Not Connected")')
+fsAPI.SayString("Not Connected")
 return
 }
 if (log == 1) {
@@ -30,11 +30,11 @@ logStr += "\n\n{--" + s + "--}\n"
 }
 
 function isConnected () {
-fsAPI.RunFunction('SayString("Connected")')
+fsAPI.SayString("Connected")
 }
 
 function notConnected () {
-fsAPI.RunFunction('SayString("Not Connected")')
+fsAPI.SayString("Not Connected")
 }
 
 function setCChar () {
@@ -46,10 +46,10 @@ function lg (p) {
 logPath = sF + "\\" + (p || "log.log")
 if (log == 1) {
 log = 0
-fsAPI.RunFunction('SayString("Logging Disabled")')
+fsAPI.SayString("Logging Disabled")
 } else {
 log = 1
-fsAPI.RunFunction('SayString("Logging Enabled")')
+fsAPI.SayString("Logging Enabled")
 }
 }
 
@@ -57,10 +57,10 @@ fsAPI.RunFunction('SayString("Logging Enabled")')
 function lgAppend () {
 if (logAppend == 1) {
 logAppend = 0
-fsAPI.RunFunction('SayString("Log file will be overwritten")')
+fsAPI.SayString("Log file will be overwritten")
 } else {
 logAppend = 1
-fsAPI.RunFunction('SayString("Log file will be appended")')
+fsAPI.SayString("Log file will be appended")
 }
 }
 
@@ -68,10 +68,10 @@ fsAPI.RunFunction('SayString("Log file will be appended")')
 function autoLg () {
 if (autoLog == 1) {
 autoLog = 0
-fsAPI.RunFunction('SayString("Auto Logging Disabled")')
+fsAPI.SayString("Auto Logging Disabled")
 } else {
 autoLog = 1
-fsAPI.RunFunction('SayString("Auto Logging Enabled")')
+fsAPI.SayString("Auto Logging Enabled")
 }
 }
 
