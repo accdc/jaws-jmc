@@ -49,10 +49,10 @@ Sometimes when creating new profiles within JMC, the new profile will not includ
 
 Starting in version 5.1.4 of the JMC Scripts for JAWS, advanced functionality has been added so that when new messages arrive from the MUD server while focus is not within the JMC application, these incoming strings will still be processed by the JMC scripts and announced by JAWS regardless. To enable this functionality, simply do the following:
 
-# Open the JMC application.
-# Press Insert+0 to open the JAWS Script Manager, then press Control+Shift+D to open the Default JAWS Script file.
-# At the end of the Default script file, paste the following string on a blank line: use "jmc.jsb"
-# Press Control+S to save and compile the script file, then close the Script Manager.
+1. Open the JMC application.
+2. Press Insert+0 to open the JAWS Script Manager, then press Control+Shift+D to open the Default JAWS Script file.
+3. At the end of the Default script file, paste the following string on a blank line: use "jmc.jsb"
+4. Press Control+S to save and compile the script file, then close the Script Manager.
 
 Hotkey List (Also available by pressing Insert+H within JMC)
 -----
