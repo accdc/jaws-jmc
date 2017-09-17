@@ -99,7 +99,7 @@ logPath = sF + "\\log.log"
 // Execute commands when the JMC instance is closed
 function onUnload () {
 if (log == 1) {
-if (logAppend) {
+if (logAppend == 1) {
 oJax.StringAppendToFile("\n\n" + logStr, logPath)
 } else {
 oJax.StringToFile("\n\n" + logStr, logPath)
