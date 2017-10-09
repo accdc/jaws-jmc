@@ -1,5 +1,5 @@
 /*
-JAWS Scripts for JMC - Version 5.1.4 (Last Modified September 15, 2017)
+JAWS Scripts for JMC - Version 5.1.5 (Last Modified September 26, 2017)
 For use with JMC the Java MUD Client version 3.6.1
 GitHub download: https://github.com/accdc/jaws-jmc
 Developed by Bryan Garaventa, WhatSock.com
@@ -12,7 +12,7 @@ include "jmc.jsm"
 use "jFetchUpdater.jsb"
 
 const
-csVer = "5.1.4",
+csVer = "5.1.5",
 slIni = "wndmg.ini",
 kSec = "kSlots",
 totalSlots = 20
@@ -6544,4 +6544,11 @@ elIf mBar == 5 then
 {alt+h}
 endIf
 let mBar = 0
+EndFunction
+
+Function NewTextEvent (handle hwnd, string buffer, int nAttributes, int nTextColor, int nBackgroundColor, int nEcho, string sFrameName)
+if StringLower (GetScriptFileName (true)) == "jmc.jsb" && GetWindowTypeCode (GetFocus ()) == wt_edit then
+Return
+endIf
+NewTextEvent(hwnd, buffer, nAttributes, nTextColor, nBackgroundColor, nEcho, sFrameName)
 EndFunction

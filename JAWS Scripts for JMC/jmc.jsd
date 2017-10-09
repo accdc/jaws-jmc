@@ -1022,3 +1022,13 @@
 :function activateMenu
 :SearchRank 1
 
+:function NewTextEvent
+:SearchRank 1
+:Param handle/hwnd No Description
+:Param string/buffer No Description
+:Param int/nAttributes No Description
+:Param int/nTextColor No Description
+:Param int/nBackgroundColor No Description
+:Param int/nEcho No Description
+:Param string/sFrameName No Description
+

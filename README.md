@@ -1,4 +1,4 @@
-JAWS Scripts for the Java MUD Client : Version 5.1.4
+JAWS Scripts for the Java MUD Client : Version 5.1.5
 ===
 
 Introduction
