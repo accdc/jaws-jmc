@@ -573,6 +573,11 @@
 :SearchRank 1
 :Param string/rtns No Description
 
+:function getMonitorSection
+:Returns string
+:SearchRank 1
+:Param string/rtns No Description
+
 :script toggleSpamFilter
 :SearchRank 1
 :Synopsis Toggles spam filtering and repeat message suppression
@@ -855,6 +860,12 @@
 :script changeAmpDelVl
 :SearchRank 1
 :Synopsis allows you to Change the automatic delay value
+
+:script changeMonitorMatchString
+:SearchRank 1
+
+:script SpeakMonitorMatch
+:SearchRank 1
 
 :script loadAmp
 :SearchRank 1

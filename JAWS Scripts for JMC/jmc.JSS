@@ -1,5 +1,5 @@
 /*
-JAWS Scripts for JMC - Version 5.1.5 (Last Modified September 26, 2017)
+JAWS Scripts for JMC - Version 5.1.6 (Last Modified November 1, 2017)
 For use with JMC the Java MUD Client version 3.6.1
 GitHub download: https://github.com/accdc/jaws-jmc
 Developed by Bryan Garaventa, WhatSock.com
@@ -12,7 +12,7 @@ include "jmc.jsm"
 use "jFetchUpdater.jsb"
 
 const
-csVer = "5.1.5",
+csVer = "5.1.6",
 slIni = "wndmg.ini",
 kSec = "kSlots",
 totalSlots = 20
@@ -162,6 +162,9 @@ string spamP,
 int spamF,
 string macVs,
 string navVs,
+string monS,
+string monMatch,
+string monBfr,
 int escKvl,
 string fRoute,
 string bRoute,
@@ -298,6 +301,7 @@ compStr = "Ignore Comparison string values",
 spam = "SpamFiltering",
 macV = "MacroValues",
 nav = "NavigationValues",
+monSect = "Monitor",
 ini = "jmc.ini",
 amp = "AMNullifyStrings",
 inter = "Interrupt Values",
@@ -455,7 +459,13 @@ endIf
 EndFunction
 
 Function parseIncomingString (string bfr)
-let bfr = StringTrimLeadingBlanks (StringTrimTrailingBlanks (StringReplaceSubstrings (bfr, "&quat;", "\"")))
+
+let bfr = StringReplaceSubstrings (bfr, "&quat;", "\"")
+if not StringIsBlank (monMatch) && StringContains (bfr, monMatch) then
+let monBfr = bfr
+endIf
+let bfr = StringTrimLeadingBlanks (StringTrimTrailingBlanks (bfr))
+
 if bfr == "0" then
 Return
 endIf
@@ -535,13 +545,15 @@ endIf
 
 let spamEnt = 0
 
+if StringLower (GetScriptFileName (true)) == "jmc.jsb" then
 Say (bfr, 0)
+else
+SayUsingVoice (VCTX_JAWSCURSOR, bfr, ot_message)
+endIf
 
 endIf
 
 ; virtual buffer
-;if (hwnd == mainW) &&
-;chngFromMainW then
 
 var
 int bv
@@ -562,7 +574,6 @@ let bfrTb = StringRight (bfrTb, bv)
 endIf
 endIf
 
-;endIf
 ; end virtual buffer
 EndFunction
 
@@ -2429,6 +2440,9 @@ let trimT = IniReadInteger (getTrimSection (""), "trimT", 0, ini)
 let trimCh = IniReadInteger (getTrimSection (""), "trimCh", 0, ini)
 let trimToggle = IniReadInteger (getTrimSection (""), "trimToggle", 0, ini)
 
+let monS = getMonitorSection ("")
+let monMatch = IniReadString (monS, "match", "", ini)
+
 getWKeys (getWKeysSection (""))
 EndFunction
 
@@ -2794,6 +2808,7 @@ endIf
 EndFunction
 
 Void Function navType (int kvl)
+let stp = 0
 clearLine ()
 TypeString (getNavKvl (kvl, ""))
 EnterKey ()
@@ -3273,6 +3288,7 @@ endIf
 EndScript
 
 Script mEscK ()
+let stp = 0
 if UserBufferIsActive () then
 UserBufferDeactivate ()
 Say ("Edit", 0, false)
@@ -3303,6 +3319,7 @@ TypeCurrentScriptKey ()
 EndScript
 
 Script mTabK ()
+let stp = 0
 if isMainWndw () &&
 (!StringIsBlank (mTabK)) then
 navType (12)
@@ -3341,6 +3358,7 @@ endIf
 EndScript
 
 Script mInsK ()
+let stp = 0
 if quickNav then
 let quickNav = false
 Say ("quick nav disabled", 0)
@@ -3847,6 +3865,11 @@ EndFunction
 
 String Function getSpamSection (string rtns)
 let rtns = (spam + " " + pfl)
+Return rtns
+EndFunction
+
+String Function getMonitorSection (string rtns)
+let rtns = (monSect + " " + pfl)
 Return rtns
 EndFunction
 
@@ -5736,6 +5759,33 @@ TypeCurrentScriptKey ()
 endIf
 EndScript
 
+Script changeMonitorMatchString ()
+var
+string dlvlm,
+string dlvl
+let dlvlm = "Type the string value that you want to match against incomming messages for the automatic Monitor feature, where pressing the Windows key, or Alt+Control will repeat the current monitor buffer value in memory."
+if InputBox (dlvlm, "Enter Monitor String Value", dlvl) then
+if StringIsBlank (dlvl) then
+IniWriteString (monS, "match", "", ini)
+getNavVs ()
+Say ("the value for Automatic Monitoring has been cleared.", 0)
+Return
+elIf (StringLength (dlvl) > 70) then
+Say ("String must not exceed 70 characters in length", 0)
+Return
+endIf
+IniWriteString (monS, "match", dlvl, ini)
+getNavVs ()
+Say (dlvl, 0)
+Say ("has been set for the Automatic Monitoring value", 0)
+endIf
+EndScript
+
+Script SpeakMonitorMatch ()
+StopSpeech ()
+Say (monBfr, 0)
+EndScript
+
 Script loadAmp ()
 var
 string mp
@@ -6236,6 +6286,7 @@ let isCtrl = true
 else
 let isCtrl = false
 endIf
+let stp = 0
 
 if StringContains (pressed, "uparrow") then
 if mBar > 0 then
@@ -6336,7 +6387,7 @@ endIf
 if StringContains (pressed, "shift") then
 if quickNav && IsPCCursor () && not IsVirtualPCCursor () then
 if isCtrl then
-PerformScript swNPSlash()
+PerformScript ClearEditField()
 Return
 endIf
 PerformScript navUp()
@@ -6352,10 +6403,6 @@ endIf
 
 if StringContains (pressed, "control") then
 if quickNav && IsPCCursor () && not IsVirtualPCCursor () then
-if StringContains (pressed, "rightcontrol+leftcontrol") then
-PerformScript swNPStar()
-Return
-endIf
 PerformScript navDown()
 else
 PerformScript ctrlKey()

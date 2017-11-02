@@ -15,6 +15,12 @@ JMC Help Documentation
 To open the JMC Script Reference file, press Insert+F1 twice quickly.
 To open the jmc program (help) file, press Control+F1.
 
+Automatic Monitoring
+-----
+
+To set a string to match for automatic monitoring, press Alt+Control+Insert or Windows+Insert. (Example: "HP:", so that this matches a constant string sent by the MUD.)
+To hear the most recent automatic monitor value received by the MUD, press Alt+Control or the Windows key.
+
 JMC Session Logging
 -----
 
